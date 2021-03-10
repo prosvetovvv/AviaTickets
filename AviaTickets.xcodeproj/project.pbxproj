@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E162516425F3D8B90034CBA9 /* Country.m in Sources */ = {isa = PBXBuildFile; fileRef = E162516325F3D8B90034CBA9 /* Country.m */; };
 		E162516A25F3EAB50034CBA9 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = E162516925F3EAB50034CBA9 /* City.m */; };
+		E166C31225F5120700BB7EEF /* PlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E166C31125F5120700BB7EEF /* PlaceViewController.m */; };
 		E185622D25F3CEB90066B6BA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E185622C25F3CEB90066B6BA /* AppDelegate.m */; };
 		E185623325F3CEB90066B6BA /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E185623225F3CEB90066B6BA /* MainViewController.m */; };
 		E185623825F3CEBA0066B6BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E185623725F3CEBA0066B6BA /* Assets.xcassets */; };
@@ -17,6 +18,8 @@
 		E185625025F3D5DD0066B6BA /* cities.json in Resources */ = {isa = PBXBuildFile; fileRef = E185624D25F3D5DD0066B6BA /* cities.json */; };
 		E185625125F3D5DD0066B6BA /* countries.json in Resources */ = {isa = PBXBuildFile; fileRef = E185624E25F3D5DD0066B6BA /* countries.json */; };
 		E185625225F3D5DD0066B6BA /* airports.json in Resources */ = {isa = PBXBuildFile; fileRef = E185624F25F3D5DD0066B6BA /* airports.json */; };
+		E18B7D1D25F7A76B00F6630B /* ATPlaceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E18B7D1C25F7A76B00F6630B /* ATPlaceCell.m */; };
+		E18B7D2125F7BC8B00F6630B /* PlaceType.h in Sources */ = {isa = PBXBuildFile; fileRef = E18B7D2025F7BC8B00F6630B /* PlaceType.h */; };
 		E191B0C825F3F14200CE4FC6 /* Airport.m in Sources */ = {isa = PBXBuildFile; fileRef = E191B0C725F3F14200CE4FC6 /* Airport.m */; };
 		E191B0CD25F3F47900CE4FC6 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E191B0CC25F3F47900CE4FC6 /* DataManager.m */; };
 /* End PBXBuildFile section */
@@ -26,6 +29,9 @@
 		E162516325F3D8B90034CBA9 /* Country.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Country.m; sourceTree = "<group>"; };
 		E162516825F3EAB50034CBA9 /* City.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
 		E162516925F3EAB50034CBA9 /* City.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = City.m; sourceTree = "<group>"; };
+		E166C31025F5120700BB7EEF /* PlaceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaceViewController.h; sourceTree = "<group>"; };
+		E166C31125F5120700BB7EEF /* PlaceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaceViewController.m; sourceTree = "<group>"; };
+		E166C31525F5269500BB7EEF /* SearchRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchRequest.h; sourceTree = "<group>"; };
 		E185622825F3CEB90066B6BA /* AviaTickets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AviaTickets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E185622B25F3CEB90066B6BA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E185622C25F3CEB90066B6BA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -38,6 +44,9 @@
 		E185624D25F3D5DD0066B6BA /* cities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cities.json; sourceTree = "<group>"; };
 		E185624E25F3D5DD0066B6BA /* countries.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = countries.json; sourceTree = "<group>"; };
 		E185624F25F3D5DD0066B6BA /* airports.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = airports.json; sourceTree = "<group>"; };
+		E18B7D1B25F7A76B00F6630B /* ATPlaceCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ATPlaceCell.h; sourceTree = "<group>"; };
+		E18B7D1C25F7A76B00F6630B /* ATPlaceCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ATPlaceCell.m; sourceTree = "<group>"; };
+		E18B7D2025F7BC8B00F6630B /* PlaceType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaceType.h; sourceTree = "<group>"; };
 		E191B0C625F3F14200CE4FC6 /* Airport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Airport.h; sourceTree = "<group>"; };
 		E191B0C725F3F14200CE4FC6 /* Airport.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Airport.m; sourceTree = "<group>"; };
 		E191B0CB25F3F47900CE4FC6 /* DataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
@@ -68,6 +77,43 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		E166C30B25F511B500BB7EEF /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				E166C30D25F511C100BB7EEF /* Main */,
+				E166C30F25F511CE00BB7EEF /* Place */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		E166C30D25F511C100BB7EEF /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				E185623125F3CEB90066B6BA /* MainViewController.h */,
+				E185623225F3CEB90066B6BA /* MainViewController.m */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		E166C30F25F511CE00BB7EEF /* Place */ = {
+			isa = PBXGroup;
+			children = (
+				E166C31025F5120700BB7EEF /* PlaceViewController.h */,
+				E166C31125F5120700BB7EEF /* PlaceViewController.m */,
+				E18B7D1A25F7A72900F6630B /* Cell */,
+			);
+			path = Place;
+			sourceTree = "<group>";
+		};
+		E166C31425F5268800BB7EEF /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E166C31525F5269500BB7EEF /* SearchRequest.h */,
+				E18B7D2025F7BC8B00F6630B /* PlaceType.h */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		E185621F25F3CEB90066B6BA = {
 			isa = PBXGroup;
 			children = (
@@ -87,11 +133,11 @@
 		E185622A25F3CEB90066B6BA /* AviaTickets */ = {
 			isa = PBXGroup;
 			children = (
+				E166C31425F5268800BB7EEF /* Helpers */,
 				E191B0CA25F3F43A00CE4FC6 /* Services */,
 				E162516125F3D87F0034CBA9 /* Models */,
 				E185624925F3D4E40066B6BA /* App */,
-				E185623125F3CEB90066B6BA /* MainViewController.h */,
-				E185623225F3CEB90066B6BA /* MainViewController.m */,
+				E166C30B25F511B500BB7EEF /* Screens */,
 				E185624B25F3D5470066B6BA /* Resources */,
 				E185623C25F3CEBA0066B6BA /* Info.plist */,
 			);
@@ -118,6 +164,15 @@
 				E185623D25F3CEBA0066B6BA /* main.m */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		E18B7D1A25F7A72900F6630B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E18B7D1B25F7A76B00F6630B /* ATPlaceCell.h */,
+				E18B7D1C25F7A76B00F6630B /* ATPlaceCell.m */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		E191B0CA25F3F43A00CE4FC6 /* Services */ = {
@@ -204,7 +259,10 @@
 				E162516425F3D8B90034CBA9 /* Country.m in Sources */,
 				E191B0CD25F3F47900CE4FC6 /* DataManager.m in Sources */,
 				E185623325F3CEB90066B6BA /* MainViewController.m in Sources */,
+				E18B7D2125F7BC8B00F6630B /* PlaceType.h in Sources */,
+				E166C31225F5120700BB7EEF /* PlaceViewController.m in Sources */,
 				E191B0C825F3F14200CE4FC6 /* Airport.m in Sources */,
+				E18B7D1D25F7A76B00F6630B /* ATPlaceCell.m in Sources */,
 				E185622D25F3CEB90066B6BA /* AppDelegate.m in Sources */,
 				E185623E25F3CEBA0066B6BA /* main.m in Sources */,
 			);

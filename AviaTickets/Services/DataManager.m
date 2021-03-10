@@ -88,22 +88,6 @@
         }
     }
     
-    
-//    for (NSDictionary *jsonObject in array) {
-//        if (type == DataSourceTypeCountry) {
-//            Country *country = [[Country alloc] initWithDictionary:jsonObject];
-//            [results addObject:country];
-//        }
-//        else if (type == DataSourceTypeCity) {
-//            City *city = [[City alloc] initWithDictionary:jsonObject];
-//            [results addObject:city];
-//        }
-//        else if (type == DataSourceTypeAirport) {
-//            Airport *airport = [[Airport alloc] initWithDictionary:jsonObject];
-//            [results addObject:airport];
-//        }
-//    }
-    
     return results;
 }
 
