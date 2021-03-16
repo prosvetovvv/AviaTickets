@@ -60,6 +60,16 @@
     return [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
 }
 
+- (City *)cityForIATA:(NSString *)iata {
+    if (iata) {
+        for (City *city in _citiesArray) {
+            if ([city.code isEqualToString:iata]) {
+                return city;
+            }
+        }
+    }
+    return nil;
+}
 
 - (NSMutableArray *)createObjectsFromArray:(NSArray *)array withType:(DataSourceType)type
 {

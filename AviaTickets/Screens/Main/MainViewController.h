@@ -6,6 +6,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DataManager.h"
+#import "PlaceViewController.h"
+#import "SearchRequest.h"
+#import "APIManager.h"
+#import "TicketsTableViewController.h"
 
 @interface MainViewController : UIViewController
 
