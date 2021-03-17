@@ -10,6 +10,8 @@
 #import "DataManager.h"
 #import "City.h"
 #import "Ticket.h"
+#import "MapPrice.h"
+
 
 
 NS_ASSUME_NONNULL_BEGIN
@@ -22,6 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)cityForCurrentIP:(void (^)(City *city))completion;
 - (void)ticketsWithRequest:(SearchRequest)request withCompletion:(void (^)(NSArray *tickets))completion;
 - (void)downloadPhotoFrom:(NSString *)urlString to:(UIImageView *)imageView;
+- (void)mapPricesFor:(City *)origin withCompletion:(void (^)(NSArray *prices))completion;
 
 @end
 
