@@ -29,6 +29,7 @@
 		E19F0F612602218900704C5D /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E19F0F602602218900704C5D /* LocationManager.m */; };
 		E19F0F6A2602390D00704C5D /* MapPrice.m in Sources */ = {isa = PBXBuildFile; fileRef = E19F0F692602390D00704C5D /* MapPrice.m */; };
 		E19F0F6F260242A500704C5D /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E19F0F6E260242A500704C5D /* MapViewController.m */; };
+		E19F0F75260371A100704C5D /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E19F0F74260371A100704C5D /* TabBarController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,8 @@
 		E19F0F692602390D00704C5D /* MapPrice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapPrice.m; sourceTree = "<group>"; };
 		E19F0F6D260242A500704C5D /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		E19F0F6E260242A500704C5D /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		E19F0F73260371A100704C5D /* TabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
+		E19F0F74260371A100704C5D /* TabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +179,8 @@
 			children = (
 				E185622B25F3CEB90066B6BA /* AppDelegate.h */,
 				E185622C25F3CEB90066B6BA /* AppDelegate.m */,
+				E19F0F73260371A100704C5D /* TabBarController.h */,
+				E19F0F74260371A100704C5D /* TabBarController.m */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -318,6 +323,7 @@
 				E162516A25F3EAB50034CBA9 /* City.m in Sources */,
 				E162516425F3D8B90034CBA9 /* Country.m in Sources */,
 				E19F0F452600BFB700704C5D /* TicketCell.m in Sources */,
+				E19F0F75260371A100704C5D /* TabBarController.m in Sources */,
 				E191B0CD25F3F47900CE4FC6 /* DataManager.m in Sources */,
 				E19F0F4A2600C61500704C5D /* APIManager.m in Sources */,
 				E185623325F3CEB90066B6BA /* MainViewController.m in Sources */,
