@@ -19,6 +19,7 @@
 		E185625225F3D5DD0066B6BA /* airports.json in Resources */ = {isa = PBXBuildFile; fileRef = E185624F25F3D5DD0066B6BA /* airports.json */; };
 		E191B0C825F3F14200CE4FC6 /* Airport.m in Sources */ = {isa = PBXBuildFile; fileRef = E191B0C725F3F14200CE4FC6 /* Airport.m */; };
 		E191B0CD25F3F47900CE4FC6 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E191B0CC25F3F47900CE4FC6 /* DataManager.m */; };
+		E19F0F812603918200704C5D /* FirstCollectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = E19F0F802603918200704C5D /* FirstCollectionController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,8 @@
 		E191B0C725F3F14200CE4FC6 /* Airport.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Airport.m; sourceTree = "<group>"; };
 		E191B0CB25F3F47900CE4FC6 /* DataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
 		E191B0CC25F3F47900CE4FC6 /* DataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		E19F0F7F2603918200704C5D /* FirstCollectionController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstCollectionController.h; sourceTree = "<group>"; };
+		E19F0F802603918200704C5D /* FirstCollectionController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstCollectionController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +94,8 @@
 				E162516125F3D87F0034CBA9 /* Models */,
 				E185624925F3D4E40066B6BA /* App */,
 				E185623125F3CEB90066B6BA /* MainViewController.h */,
+				E19F0F7F2603918200704C5D /* FirstCollectionController.h */,
+				E19F0F802603918200704C5D /* FirstCollectionController.m */,
 				E185623225F3CEB90066B6BA /* MainViewController.m */,
 				E185624B25F3D5470066B6BA /* Resources */,
 				E185623C25F3CEBA0066B6BA /* Info.plist */,
@@ -206,6 +211,7 @@
 				E185623325F3CEB90066B6BA /* MainViewController.m in Sources */,
 				E191B0C825F3F14200CE4FC6 /* Airport.m in Sources */,
 				E185622D25F3CEB90066B6BA /* AppDelegate.m in Sources */,
+				E19F0F812603918200704C5D /* FirstCollectionController.m in Sources */,
 				E185623E25F3CEBA0066B6BA /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
