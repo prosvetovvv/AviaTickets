@@ -104,7 +104,7 @@
 
 - (ATPlaceCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ATPlaceCell *cell = [tableView dequeueReusableCellWithIdentifier:ReuseIdentifier];
-
+    
     if (!cell) {
         cell = [[ATPlaceCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ReuseIdentifier placeType:self.placeType];
     }

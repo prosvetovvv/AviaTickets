@@ -63,7 +63,7 @@
     self.departureButton.tintColor = [UIColor blackColor];
     [self.departureButton setTitle:@"Departure" forState: UIControlStateNormal];
     [self.departureButton addTarget:self action:@selector(placeButtonDidTap:) forControlEvents:UIControlEventTouchUpInside];
-
+    
     [self.placeContainerView addSubview:self.departureButton];
 }
 
@@ -75,7 +75,7 @@
     self.arrivalButton.tintColor = [UIColor blackColor];
     [self.arrivalButton setTitle:@"Arrival" forState: UIControlStateNormal];
     [self.arrivalButton addTarget:self action:@selector(placeButtonDidTap:) forControlEvents:UIControlEventTouchUpInside];
-
+    
     [self.placeContainerView addSubview:self.arrivalButton];
 }
 
@@ -143,7 +143,7 @@
             iata = airport.cityCode;
             break;
         }
-    
+            
         default:
             break;
     }

@@ -74,7 +74,7 @@
     self.image.image = [UIImage systemImageNamed:@"airplane"];
     self.image.tintColor = [UIColor redColor];
     self.image.contentMode = UIViewContentModeScaleAspectFit;
-
+    
     switch (self.placeType) {
         case PlaceTypeDeparture:
             self.image.transform = CGAffineTransformMakeRotation(-M_PI_2 / 3);
@@ -89,7 +89,7 @@
 
 -(void)layoutSubviews {
     [super layoutSubviews];
-        
+    
     //self.image.frame = CGRectMake(WeightCell - WeightImageView, self.contentView.center.y, WeightImageView, HeightImageView);
 }
 

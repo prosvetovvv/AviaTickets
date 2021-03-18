@@ -21,11 +21,11 @@
     CGRect frame = [[UIScreen mainScreen] bounds];
     self.window = [[UIWindow alloc] initWithFrame:frame];
     
-    MainViewController *mainViewController = [MainViewController new];
-    //MapViewController *mapViewController = [MapViewController new];
+    //MainViewController *mainViewController = [MainViewController new];
+    MapViewController *mapViewController = [MapViewController new];
     
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:mainViewController];
-    //UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:mapViewController];
+    //UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:mainViewController];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:mapViewController];
     
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];

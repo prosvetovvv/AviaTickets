@@ -28,8 +28,8 @@
     NSURL *url = [NSURL URLWithString:urlString];
     
     [[[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-            completion([NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil]);
-        }] resume];
+        completion([NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil]);
+    }] resume];
 }
 
 - (void)cityForCurrentIP:(void (^)(City * _Nonnull))completion {
@@ -111,42 +111,17 @@
     }];
 }
 
-//- (void)mapPricesFor:(City *)origin withCompletion:(void (^)(NSArray *prices))completion {
-//    static BOOL isLoading;
-//
-//    if(isLoading) {
-//        return;
-//    }
-//
-//    isLoading = YES;
-//    NSString *url = [NSString stringWithFormat:@"%@%@", API_URL_MAP_PRICE, origin.code];
-//    [self load:url withCompletion:^(id  _Nullable result) {
-//        NSArray *array = result;
-//        NSMutableArray *prices = [NSMutableArray new];
-//        if (array) {
-//            for (NSDictionary *mapPriceDictionary in array) {
-//                MapPrice *mapPrice = [[MapPrice alloc] initWithDictionary:mapPriceDictionary withOrigin:origin];
-//                [prices addObject:mapPrice];
-//            }
-//            isLoading = NO;
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                completion(prices);
-//            });
-//        }
-//    }];
-//}
-
 - (void)downloadPhotoFrom:(NSString *)urlString to:(UIImageView *)imageView {
     [[[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:urlString] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-            dispatch_async(dispatch_get_global_queue(QOS_CLASS_DEFAULT, 0), ^{
-                if (data) {
-                    UIImage *image = [[UIImage alloc] initWithData:data];
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        imageView.image = image;
-                    });
-                }
-            });
-        }] resume];
+        dispatch_async(dispatch_get_global_queue(QOS_CLASS_DEFAULT, 0), ^{
+            if (data) {
+                UIImage *image = [[UIImage alloc] initWithData:data];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    imageView.image = image;
+                });
+            }
+        });
+    }] resume];
 }
 
 @end

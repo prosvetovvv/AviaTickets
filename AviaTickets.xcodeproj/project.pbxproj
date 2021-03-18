@@ -105,10 +105,10 @@
 		E166C30B25F511B500BB7EEF /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				E19F0F6C2602428000704C5D /* Map */,
-				E19F0F382600BCCC00704C5D /* Tickets */,
 				E166C30D25F511C100BB7EEF /* Main */,
 				E166C30F25F511CE00BB7EEF /* Place */,
+				E19F0F6C2602428000704C5D /* Map */,
+				E19F0F382600BCCC00704C5D /* Tickets */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -160,11 +160,11 @@
 		E185622A25F3CEB90066B6BA /* AviaTickets */ = {
 			isa = PBXGroup;
 			children = (
-				E166C31425F5268800BB7EEF /* Helpers */,
-				E191B0CA25F3F43A00CE4FC6 /* Services */,
-				E162516125F3D87F0034CBA9 /* Models */,
 				E185624925F3D4E40066B6BA /* App */,
 				E166C30B25F511B500BB7EEF /* Screens */,
+				E191B0CA25F3F43A00CE4FC6 /* Services */,
+				E162516125F3D87F0034CBA9 /* Models */,
+				E166C31425F5268800BB7EEF /* Helpers */,
 				E185624B25F3D5470066B6BA /* Resources */,
 				E185623C25F3CEBA0066B6BA /* Info.plist */,
 			);
