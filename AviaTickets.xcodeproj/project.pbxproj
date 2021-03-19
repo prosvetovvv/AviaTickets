@@ -20,6 +20,8 @@
 		E191B0C825F3F14200CE4FC6 /* Airport.m in Sources */ = {isa = PBXBuildFile; fileRef = E191B0C725F3F14200CE4FC6 /* Airport.m */; };
 		E191B0CD25F3F47900CE4FC6 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E191B0CC25F3F47900CE4FC6 /* DataManager.m */; };
 		E19F0F812603918200704C5D /* FirstCollectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = E19F0F802603918200704C5D /* FirstCollectionController.m */; };
+		E19F0F9B2604C1FF00704C5D /* ImageWithTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E19F0F9A2604C1FF00704C5D /* ImageWithTitleCell.m */; };
+		E19F0FA22604E9FE00704C5D /* Content.m in Sources */ = {isa = PBXBuildFile; fileRef = E19F0FA12604E9FE00704C5D /* Content.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +47,10 @@
 		E191B0CC25F3F47900CE4FC6 /* DataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 		E19F0F7F2603918200704C5D /* FirstCollectionController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstCollectionController.h; sourceTree = "<group>"; };
 		E19F0F802603918200704C5D /* FirstCollectionController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstCollectionController.m; sourceTree = "<group>"; };
+		E19F0F992604C1FF00704C5D /* ImageWithTitleCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageWithTitleCell.h; sourceTree = "<group>"; };
+		E19F0F9A2604C1FF00704C5D /* ImageWithTitleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageWithTitleCell.m; sourceTree = "<group>"; };
+		E19F0FA02604E9FE00704C5D /* Content.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Content.h; sourceTree = "<group>"; };
+		E19F0FA12604E9FE00704C5D /* Content.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Content.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +73,8 @@
 				E162516925F3EAB50034CBA9 /* City.m */,
 				E191B0C625F3F14200CE4FC6 /* Airport.h */,
 				E191B0C725F3F14200CE4FC6 /* Airport.m */,
+				E19F0FA02604E9FE00704C5D /* Content.h */,
+				E19F0FA12604E9FE00704C5D /* Content.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -94,9 +102,11 @@
 				E162516125F3D87F0034CBA9 /* Models */,
 				E185624925F3D4E40066B6BA /* App */,
 				E185623125F3CEB90066B6BA /* MainViewController.h */,
+				E185623225F3CEB90066B6BA /* MainViewController.m */,
 				E19F0F7F2603918200704C5D /* FirstCollectionController.h */,
 				E19F0F802603918200704C5D /* FirstCollectionController.m */,
-				E185623225F3CEB90066B6BA /* MainViewController.m */,
+				E19F0F992604C1FF00704C5D /* ImageWithTitleCell.h */,
+				E19F0F9A2604C1FF00704C5D /* ImageWithTitleCell.m */,
 				E185624B25F3D5470066B6BA /* Resources */,
 				E185623C25F3CEBA0066B6BA /* Info.plist */,
 			);
@@ -208,7 +218,9 @@
 				E162516A25F3EAB50034CBA9 /* City.m in Sources */,
 				E162516425F3D8B90034CBA9 /* Country.m in Sources */,
 				E191B0CD25F3F47900CE4FC6 /* DataManager.m in Sources */,
+				E19F0FA22604E9FE00704C5D /* Content.m in Sources */,
 				E185623325F3CEB90066B6BA /* MainViewController.m in Sources */,
+				E19F0F9B2604C1FF00704C5D /* ImageWithTitleCell.m in Sources */,
 				E191B0C825F3F14200CE4FC6 /* Airport.m in Sources */,
 				E185622D25F3CEB90066B6BA /* AppDelegate.m in Sources */,
 				E19F0F812603918200704C5D /* FirstCollectionController.m in Sources */,

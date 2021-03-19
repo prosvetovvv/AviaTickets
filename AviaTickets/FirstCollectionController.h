@@ -6,6 +6,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ImageWithTitleCell.h"
+#import "Content.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
