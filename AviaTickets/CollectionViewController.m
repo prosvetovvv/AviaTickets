@@ -5,9 +5,9 @@
 //  Created by Vitaly Prosvetov on 18.03.2021.
 //
 
-#import "FirstCollectionController.h"
+#import "CollectionViewController.h"
 
-@interface FirstCollectionController () <UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UISearchResultsUpdating, UIImagePickerControllerDelegate>
+@interface CollectionViewController () <UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UISearchResultsUpdating, UIImagePickerControllerDelegate>
 
 @property (nonatomic, weak) UICollectionView *collectionView;
 @property (nonatomic, strong) UISearchController *searchController;
@@ -16,7 +16,7 @@
 
 @end
 
-@implementation FirstCollectionController
+@implementation CollectionViewController
 
 static NSString * const reuseIdentifier = @"Cell";
 
@@ -34,15 +34,15 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void) setupCollectionView {
     UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
-    layout.minimumLineSpacing = 10.0;
-    layout.minimumInteritemSpacing = 10.0;
+    layout.sectionInset = UIEdgeInsetsMake(10.0, 10.0, 10.0, 10.0);
+    layout.minimumLineSpacing = 15.0;
+    layout.minimumInteritemSpacing = 15.0;
     layout.itemSize = CGSizeMake(100.0, 100.0);
     layout.scrollDirection = UICollectionViewScrollDirectionVertical;
     
     UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
     collectionView.backgroundColor = [UIColor whiteColor];
     collectionView.dataSource = self;
-    //[collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     [collectionView registerClass:[ImageWithTitleCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
     self.currentContents = [NSMutableArray new];
@@ -75,8 +75,6 @@ static NSString * const reuseIdentifier = @"Cell";
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-
-    //return self.currentContents.count;
     return self.searchContents.count > 0 ? self.searchContents.count : self.currentContents.count;
 }
 
@@ -84,9 +82,6 @@ static NSString * const reuseIdentifier = @"Cell";
    ImageWithTitleCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
     NSArray<Content *> *array = self.searchContents.count > 0 ? self.searchContents : self.currentContents;
-    
-//    cell.imageView.image = self.currentContents[indexPath.row].image;
-//    cell.titleLabel.text = self.currentContents[indexPath.row].title;
     
     cell.imageView.image = array[indexPath.row].image;
     cell.titleLabel.text = array[indexPath.row].title;
@@ -107,8 +102,6 @@ static NSString * const reuseIdentifier = @"Cell";
         [self.currentContents addObject:content];
         [self.collectionView reloadData];
     }
-    
-    //[picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
@@ -119,26 +112,17 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)updateSearchResultsForSearchController:(nonnull UISearchController *)searchController {
     if (searchController.searchBar.text.length > 0) {
-        //NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF CONTAINS[cd] %@", searchController.searchBar.text];
+        NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(Content*  _Nullable evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
+            return [evaluatedObject.title containsString:searchController.searchBar.text];
+        }];
         
-            
-        self.searchContents = [self.currentContents filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(Content*  _Nullable evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
-            return [evaluatedObject.title hasPrefix:searchController.searchBar.text];
-        }]];
-        
+        self.searchContents = [self.currentContents filteredArrayUsingPredicate:predicate];
         [self.collectionView reloadData];
-//        [self.searchContents filterUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(Content* evaluatedObject, NSDictionary *bindings) {
-//            return [evaluatedObject.title hasPrefix:searchController.searchBar.text];
-//        }];
-        
 
-        
-        //self.resultsViewController.results = [self.array filteredArrayUsingPredicate:predicate];
-        //[self.resultsViewController update];
     } else {
+        self.searchContents = @[];
         [self.collectionView reloadData];
     }
 }
-
 
 @end

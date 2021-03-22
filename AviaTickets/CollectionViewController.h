@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FirstCollectionController : UIViewController
+@interface CollectionViewController : UIViewController
 
 @end
 

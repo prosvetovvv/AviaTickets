@@ -6,8 +6,8 @@
 //
 
 #import "AppDelegate.h"
-#import "MainViewController.h"
-#import "FirstCollectionController.h"
+#import "CollectionViewController.h"
+#import "TabBarController.h"
 
 @interface AppDelegate ()
 
@@ -21,14 +21,9 @@
     CGRect frame = [[UIScreen mainScreen] bounds];
     self.window = [[UIWindow alloc] initWithFrame:frame];
     
-    //MainViewController *mainViewController = [MainViewController new];
-    FirstCollectionController *firstCollectionController = [FirstCollectionController new];
+    TabBarController *tabBarController = [[TabBarController alloc] init];
     
-    //UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:mainViewController];
-    UINavigationController *firstNavigationController = [[UINavigationController alloc] initWithRootViewController:firstCollectionController];
-    
-    //self.window.rootViewController = navigationController;
-    self.window.rootViewController = firstNavigationController;
+    self.window.rootViewController = tabBarController;
     
     [self.window makeKeyAndVisible];
     
