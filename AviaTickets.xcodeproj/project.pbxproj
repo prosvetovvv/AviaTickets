@@ -10,7 +10,6 @@
 		E162516425F3D8B90034CBA9 /* Country.m in Sources */ = {isa = PBXBuildFile; fileRef = E162516325F3D8B90034CBA9 /* Country.m */; };
 		E162516A25F3EAB50034CBA9 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = E162516925F3EAB50034CBA9 /* City.m */; };
 		E185622D25F3CEB90066B6BA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E185622C25F3CEB90066B6BA /* AppDelegate.m */; };
-		E185623325F3CEB90066B6BA /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E185623225F3CEB90066B6BA /* MainViewController.m */; };
 		E185623825F3CEBA0066B6BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E185623725F3CEBA0066B6BA /* Assets.xcassets */; };
 		E185623B25F3CEBA0066B6BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E185623925F3CEBA0066B6BA /* LaunchScreen.storyboard */; };
 		E185623E25F3CEBA0066B6BA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E185623D25F3CEBA0066B6BA /* main.m */; };
@@ -19,6 +18,10 @@
 		E185625225F3D5DD0066B6BA /* airports.json in Resources */ = {isa = PBXBuildFile; fileRef = E185624F25F3D5DD0066B6BA /* airports.json */; };
 		E191B0C825F3F14200CE4FC6 /* Airport.m in Sources */ = {isa = PBXBuildFile; fileRef = E191B0C725F3F14200CE4FC6 /* Airport.m */; };
 		E191B0CD25F3F47900CE4FC6 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E191B0CC25F3F47900CE4FC6 /* DataManager.m */; };
+		E19F0F812603918200704C5D /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E19F0F802603918200704C5D /* CollectionViewController.m */; };
+		E19F0F9B2604C1FF00704C5D /* ImageWithTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E19F0F9A2604C1FF00704C5D /* ImageWithTitleCell.m */; };
+		E19F0FA22604E9FE00704C5D /* Content.m in Sources */ = {isa = PBXBuildFile; fileRef = E19F0FA12604E9FE00704C5D /* Content.m */; };
+		E19F0FB326088E7F00704C5D /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E19F0FB226088E7F00704C5D /* TabBarController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,8 +32,6 @@
 		E185622825F3CEB90066B6BA /* AviaTickets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AviaTickets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E185622B25F3CEB90066B6BA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E185622C25F3CEB90066B6BA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		E185623125F3CEB90066B6BA /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
-		E185623225F3CEB90066B6BA /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		E185623725F3CEBA0066B6BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E185623A25F3CEBA0066B6BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E185623C25F3CEBA0066B6BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -42,6 +43,14 @@
 		E191B0C725F3F14200CE4FC6 /* Airport.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Airport.m; sourceTree = "<group>"; };
 		E191B0CB25F3F47900CE4FC6 /* DataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
 		E191B0CC25F3F47900CE4FC6 /* DataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		E19F0F7F2603918200704C5D /* CollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
+		E19F0F802603918200704C5D /* CollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
+		E19F0F992604C1FF00704C5D /* ImageWithTitleCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageWithTitleCell.h; sourceTree = "<group>"; };
+		E19F0F9A2604C1FF00704C5D /* ImageWithTitleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageWithTitleCell.m; sourceTree = "<group>"; };
+		E19F0FA02604E9FE00704C5D /* Content.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Content.h; sourceTree = "<group>"; };
+		E19F0FA12604E9FE00704C5D /* Content.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Content.m; sourceTree = "<group>"; };
+		E19F0FB126088E7F00704C5D /* TabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
+		E19F0FB226088E7F00704C5D /* TabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +73,8 @@
 				E162516925F3EAB50034CBA9 /* City.m */,
 				E191B0C625F3F14200CE4FC6 /* Airport.h */,
 				E191B0C725F3F14200CE4FC6 /* Airport.m */,
+				E19F0FA02604E9FE00704C5D /* Content.h */,
+				E19F0FA12604E9FE00704C5D /* Content.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -90,8 +101,10 @@
 				E191B0CA25F3F43A00CE4FC6 /* Services */,
 				E162516125F3D87F0034CBA9 /* Models */,
 				E185624925F3D4E40066B6BA /* App */,
-				E185623125F3CEB90066B6BA /* MainViewController.h */,
-				E185623225F3CEB90066B6BA /* MainViewController.m */,
+				E19F0F7F2603918200704C5D /* CollectionViewController.h */,
+				E19F0F802603918200704C5D /* CollectionViewController.m */,
+				E19F0F992604C1FF00704C5D /* ImageWithTitleCell.h */,
+				E19F0F9A2604C1FF00704C5D /* ImageWithTitleCell.m */,
 				E185624B25F3D5470066B6BA /* Resources */,
 				E185623C25F3CEBA0066B6BA /* Info.plist */,
 			);
@@ -103,6 +116,8 @@
 			children = (
 				E185622B25F3CEB90066B6BA /* AppDelegate.h */,
 				E185622C25F3CEB90066B6BA /* AppDelegate.m */,
+				E19F0FB126088E7F00704C5D /* TabBarController.h */,
+				E19F0FB226088E7F00704C5D /* TabBarController.m */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -203,9 +218,12 @@
 				E162516A25F3EAB50034CBA9 /* City.m in Sources */,
 				E162516425F3D8B90034CBA9 /* Country.m in Sources */,
 				E191B0CD25F3F47900CE4FC6 /* DataManager.m in Sources */,
-				E185623325F3CEB90066B6BA /* MainViewController.m in Sources */,
+				E19F0FA22604E9FE00704C5D /* Content.m in Sources */,
+				E19F0FB326088E7F00704C5D /* TabBarController.m in Sources */,
+				E19F0F9B2604C1FF00704C5D /* ImageWithTitleCell.m in Sources */,
 				E191B0C825F3F14200CE4FC6 /* Airport.m in Sources */,
 				E185622D25F3CEB90066B6BA /* AppDelegate.m in Sources */,
+				E19F0F812603918200704C5D /* CollectionViewController.m in Sources */,
 				E185623E25F3CEBA0066B6BA /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
