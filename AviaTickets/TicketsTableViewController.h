@@ -6,12 +6,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TicketCell.h"
+#import "CoreDataManager.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TicketsTableViewController : UITableViewController
 
 - (instancetype)initWithTickets:(NSArray *)tickets;
+- (instancetype)initFavoriteTicketsController;
 
 @end
 

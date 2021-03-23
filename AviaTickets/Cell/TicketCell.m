@@ -68,8 +68,22 @@
     dateFormatter.dateFormat = @"dd MMMM yyyy hh:mm";
     _dateLabel.text = [dateFormatter stringFromDate:ticket.departure];
     
-    NSString *url = [NSString stringWithFormat:@"https://pics.avs.io/200/200/%@.png", ticket.airline];
-    [[APIManager sharedInstance] downloadPhotoFrom:url to:self.airlineLogoView];
+    NSString *urlLogo = [NSString stringWithFormat:@"https://pics.avs.io/200/200/%@.png", ticket.airline];
+    [[APIManager sharedInstance] downloadPhotoFrom:urlLogo to:self.airlineLogoView];
+}
+
+- (void)setFavoriteTicket:(FavoriteTicket *)favoriteTicket {
+    _favoriteTicket = favoriteTicket;
+    
+    self.priceLabel.text = [NSString stringWithFormat:@"%lld руб.", favoriteTicket.price];
+    self.placesLabel.text = [NSString stringWithFormat:@"%@ - %@", favoriteTicket.from, favoriteTicket.to];
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"dd MMMM yyyy hh:mm";
+    self.dateLabel.text = [dateFormatter stringFromDate:favoriteTicket.departure];
+    
+    NSString *urlLogo = [NSString stringWithFormat:@"https://pics.avs.io/200/200/%@.png", favoriteTicket.airline];
+    [[APIManager sharedInstance] downloadPhotoFrom:urlLogo to:self.airlineLogoView];    
 }
 
 

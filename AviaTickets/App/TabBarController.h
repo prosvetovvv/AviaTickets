@@ -6,6 +6,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MainViewController.h"
+#import "MapViewController.h"
+#import "TicketsTableViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
