@@ -30,6 +30,10 @@
 		E19F0F6A2602390D00704C5D /* MapPrice.m in Sources */ = {isa = PBXBuildFile; fileRef = E19F0F692602390D00704C5D /* MapPrice.m */; };
 		E19F0F6F260242A500704C5D /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E19F0F6E260242A500704C5D /* MapViewController.m */; };
 		E19F0F75260371A100704C5D /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E19F0F74260371A100704C5D /* TabBarController.m */; };
+		E19F0FBB2609D75300704C5D /* FavoriteTicket.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E19F0FB92609D75300704C5D /* FavoriteTicket.xcdatamodeld */; };
+		E19F0FC22609D92000704C5D /* FavoriteTicket+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = E19F0FC02609D92000704C5D /* FavoriteTicket+CoreDataClass.m */; };
+		E19F0FC32609D92000704C5D /* FavoriteTicket+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = E19F0FC12609D92000704C5D /* FavoriteTicket+CoreDataProperties.m */; };
+		E19F0FC82609DBF100704C5D /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E19F0FC72609DBF100704C5D /* CoreDataManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +79,13 @@
 		E19F0F6E260242A500704C5D /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		E19F0F73260371A100704C5D /* TabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
 		E19F0F74260371A100704C5D /* TabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
+		E19F0FBA2609D75300704C5D /* FavoriteTicket.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FavoriteTicket.xcdatamodel; sourceTree = "<group>"; };
+		E19F0FBE2609D92000704C5D /* FavoriteTicket+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FavoriteTicket+CoreDataProperties.h"; sourceTree = SOURCE_ROOT; };
+		E19F0FBF2609D92000704C5D /* FavoriteTicket+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FavoriteTicket+CoreDataClass.h"; sourceTree = SOURCE_ROOT; };
+		E19F0FC02609D92000704C5D /* FavoriteTicket+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FavoriteTicket+CoreDataClass.m"; sourceTree = SOURCE_ROOT; };
+		E19F0FC12609D92000704C5D /* FavoriteTicket+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FavoriteTicket+CoreDataProperties.m"; sourceTree = SOURCE_ROOT; };
+		E19F0FC62609DBF100704C5D /* CoreDataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
+		E19F0FC72609DBF100704C5D /* CoreDataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +221,7 @@
 		E191B0CA25F3F43A00CE4FC6 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				E19F0FB82609D6DA00704C5D /* Database */,
 				E191B0CB25F3F47900CE4FC6 /* DataManager.h */,
 				E191B0CC25F3F47900CE4FC6 /* DataManager.m */,
 				E19F0F482600C61500704C5D /* APIManager.h */,
@@ -226,6 +238,7 @@
 				E19F0F3E2600BE7200704C5D /* TicketsTableViewController.h */,
 				E19F0F3F2600BE7200704C5D /* TicketsTableViewController.m */,
 				E19F0F422600BF9100704C5D /* Cell */,
+				E19F0FBD2609D8E800704C5D /* DBModels */,
 			);
 			name = Tickets;
 			path = ..;
@@ -247,6 +260,27 @@
 				E19F0F6E260242A500704C5D /* MapViewController.m */,
 			);
 			path = Map;
+			sourceTree = "<group>";
+		};
+		E19F0FB82609D6DA00704C5D /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				E19F0FB92609D75300704C5D /* FavoriteTicket.xcdatamodeld */,
+				E19F0FC62609DBF100704C5D /* CoreDataManager.h */,
+				E19F0FC72609DBF100704C5D /* CoreDataManager.m */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		E19F0FBD2609D8E800704C5D /* DBModels */ = {
+			isa = PBXGroup;
+			children = (
+				E19F0FBE2609D92000704C5D /* FavoriteTicket+CoreDataProperties.h */,
+				E19F0FBF2609D92000704C5D /* FavoriteTicket+CoreDataClass.h */,
+				E19F0FC02609D92000704C5D /* FavoriteTicket+CoreDataClass.m */,
+				E19F0FC12609D92000704C5D /* FavoriteTicket+CoreDataProperties.m */,
+			);
+			path = DBModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -321,6 +355,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E162516A25F3EAB50034CBA9 /* City.m in Sources */,
+				E19F0FC22609D92000704C5D /* FavoriteTicket+CoreDataClass.m in Sources */,
 				E162516425F3D8B90034CBA9 /* Country.m in Sources */,
 				E19F0F452600BFB700704C5D /* TicketCell.m in Sources */,
 				E19F0F75260371A100704C5D /* TabBarController.m in Sources */,
@@ -328,16 +363,19 @@
 				E19F0F4A2600C61500704C5D /* APIManager.m in Sources */,
 				E185623325F3CEB90066B6BA /* MainViewController.m in Sources */,
 				E19F0F6A2602390D00704C5D /* MapPrice.m in Sources */,
+				E19F0FC32609D92000704C5D /* FavoriteTicket+CoreDataProperties.m in Sources */,
 				E19F0F612602218900704C5D /* LocationManager.m in Sources */,
 				E18B7D2125F7BC8B00F6630B /* PlaceType.h in Sources */,
 				E19F0F402600BE7200704C5D /* TicketsTableViewController.m in Sources */,
 				E166C31225F5120700BB7EEF /* PlaceViewController.m in Sources */,
 				E191B0C825F3F14200CE4FC6 /* Airport.m in Sources */,
 				E18B7D1D25F7A76B00F6630B /* ATPlaceCell.m in Sources */,
+				E19F0FC82609DBF100704C5D /* CoreDataManager.m in Sources */,
 				E19F0F3B2600BD1400704C5D /* Ticket.m in Sources */,
 				E185622D25F3CEB90066B6BA /* AppDelegate.m in Sources */,
 				E19F0F6F260242A500704C5D /* MapViewController.m in Sources */,
 				E185623E25F3CEBA0066B6BA /* main.m in Sources */,
+				E19F0FBB2609D75300704C5D /* FavoriteTicket.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,6 +563,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E19F0FB92609D75300704C5D /* FavoriteTicket.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E19F0FBA2609D75300704C5D /* FavoriteTicket.xcdatamodel */,
+			);
+			currentVersion = E19F0FBA2609D75300704C5D /* FavoriteTicket.xcdatamodel */;
+			path = FavoriteTicket.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E185622025F3CEB90066B6BA /* Project object */;
 }

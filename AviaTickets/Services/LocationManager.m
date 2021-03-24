@@ -40,7 +40,6 @@
     }
 }
 
-
 - (void)locationManagerDidChangeAuthorization:(CLLocationManager *)manager {
     
     switch (manager.authorizationStatus) {

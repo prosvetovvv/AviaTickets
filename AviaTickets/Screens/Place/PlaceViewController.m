@@ -155,6 +155,7 @@
         
         [self.tableView reloadData];
     } else {
+        self.searchArray = @[];
         [self.tableView reloadData];
     }
 }
