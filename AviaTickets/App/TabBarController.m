@@ -38,7 +38,8 @@
     mapViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Map prices" image:[UIImage systemImageNamed:@"mappin.circle"] selectedImage:[UIImage systemImageNamed:@"mappin.circle.fill"]];
     UINavigationController *mapNavigationController = [[UINavigationController alloc] initWithRootViewController:mapViewController];
     
-    TicketsTableViewController *favoritesViewController = [[TicketsTableViewController alloc] initFavoriteTicketsController];
+    //TicketsTableViewController *favoritesViewController = [[TicketsTableViewController alloc] initFavoriteTicketsController];
+    FavoritesTableViewController *favoritesViewController = [FavoritesTableViewController new];
     favoritesViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Favorites" image:[UIImage systemImageNamed:@"star"] selectedImage:[UIImage systemImageNamed:@"star.circle.fill"]];
     UINavigationController *favoriteNavigationController = [[UINavigationController alloc] initWithRootViewController:favoritesViewController];
     

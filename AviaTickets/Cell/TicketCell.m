@@ -61,12 +61,12 @@
 - (void)setTicket:(Ticket *)ticket {
     _ticket = ticket;
     
-    _priceLabel.text = [NSString stringWithFormat:@"%@ руб.", ticket.price];
-    _placesLabel.text = [NSString stringWithFormat:@"%@ - %@", ticket.from, ticket.to];
+    self.priceLabel.text = [NSString stringWithFormat:@"%@ руб.", ticket.price];
+    self.placesLabel.text = [NSString stringWithFormat:@"%@ - %@", ticket.from, ticket.to];
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = @"dd MMMM yyyy hh:mm";
-    _dateLabel.text = [dateFormatter stringFromDate:ticket.departure];
+    self.dateLabel.text = [dateFormatter stringFromDate:ticket.departure];
     
     NSString *urlLogo = [NSString stringWithFormat:@"https://pics.avs.io/200/200/%@.png", ticket.airline];
     [[APIManager sharedInstance] downloadPhotoFrom:urlLogo to:self.airlineLogoView];

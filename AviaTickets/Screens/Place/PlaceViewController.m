@@ -20,7 +20,6 @@
 @property (nonatomic, strong) NSArray *currentArray;
 @property (nonatomic, strong) NSArray *searchArray;
 
-
 @end
 
 @implementation PlaceViewController
@@ -37,9 +36,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self setupSearchController];
     [self setupSelf];
     [self setupTableView];
+    [self setupSearchController];
     [self setupSegmentedControl];
     [self changeSource];
 }

@@ -73,6 +73,8 @@
     TicketCell *cell = [tableView dequeueReusableCellWithIdentifier:TicketCellReuseIdentifier forIndexPath:indexPath];
     
     //cell.ticket = [self.tickets objectAtIndex:indexPath.row];
+    
+    
     if (self.isFavorites) {
         cell.favoriteTicket = self.tickets[indexPath.row];
     } else {

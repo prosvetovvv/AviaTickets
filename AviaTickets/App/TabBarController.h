@@ -9,6 +9,7 @@
 #import "MainViewController.h"
 #import "MapViewController.h"
 #import "TicketsTableViewController.h"
+#import "FavoritesTableViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

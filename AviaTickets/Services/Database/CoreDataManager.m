@@ -31,7 +31,7 @@
 - (NSPersistentContainer *)persistentContainer {
     @synchronized (self) {
         if (_persistentContainer == nil) {
-            _persistentContainer = [[NSPersistentContainer alloc] initWithName:@"FavoriteTicket"];
+            _persistentContainer = [[NSPersistentContainer alloc] initWithName:@"SelectedTickets"];
             [_persistentContainer loadPersistentStoresWithCompletionHandler:^(NSPersistentStoreDescription *storeDescription, NSError *error) {
                 if (error != nil) {
                     NSLog(@"Unresolved error %@, %@", error, error.userInfo);
@@ -55,7 +55,7 @@
     }
 }
 
-#pragma mark - Public
+#pragma mark - Favorites tickets
 
 - (FavoriteTicket *)favoriteFromTicket:(Ticket *)ticket {
     NSError *error;
@@ -114,5 +114,60 @@
     
     return tickets;
 }
+
+#pragma mark - Map tickets
+
+- (MapTicket *)mapTicketFromTicket:(Ticket *)ticket {
+    NSError *error;
+    NSFetchRequest *request = [MapTicket fetchRequest];
+    NSString *format = @"price == %ld AND airline == %@ AND from == %@ AND to == %@ AND departure == %@";
+    
+    request.predicate = [NSPredicate predicateWithFormat:format, (long)ticket.price.integerValue, ticket.airline, ticket.from, ticket.to, ticket.departure];
+    NSArray *tickets = [self.persistentContainer.viewContext executeFetchRequest:request error:&error];
+    
+    if (error) {
+        NSLog(@"Error: %@", error.localizedDescription);
+        return nil;
+    }
+    
+    return tickets.firstObject;
+}
+
+- (void)addToSelectedFromMap:(Ticket *)ticket {
+    MapTicket *mapTicket = [NSEntityDescription insertNewObjectForEntityForName:@"MapTicket" inManagedObjectContext:self.persistentContainer.viewContext];
+    
+    mapTicket.price = ticket.price.intValue;
+    mapTicket.airline = ticket.airline;
+    mapTicket.departureDate = ticket.departure;
+    mapTicket.from = ticket.from;
+    mapTicket.to = ticket.to;
+    mapTicket.created = [NSDate date];
+    
+    [self saveContext];
+}
+
+- (void)removeFromSelectedFromMap:(Ticket *)ticket {
+    MapTicket *mapTicket = [self mapTicketFromTicket:ticket];
+    
+    if (mapTicket) {
+        [self.persistentContainer.viewContext deleteObject:mapTicket];
+        [self saveContext];
+    }
+}
+
+- (NSArray *)mapTickets {
+    NSError *error;
+    NSFetchRequest *request = [MapTicket fetchRequest];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"created" ascending:NO]];
+    
+    NSArray *tickets = [self.persistentContainer.viewContext executeFetchRequest:request error:&error];
+    
+    if (error) {
+        NSLog(@"Error: %@", error.localizedDescription);
+    }
+    return tickets;
+}
+
+
 
 @end

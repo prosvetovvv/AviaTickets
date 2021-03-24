@@ -7,7 +7,9 @@
 
 #import "MapViewController.h"
 
-@interface MapViewController ()
+#define AnnotationIdentifier @"AnnotationIdentifier"
+
+@interface MapViewController ()  <MKMapViewDelegate>
 
 @property (strong, nonatomic) MKMapView *mapView;
 @property (nonatomic, strong) LocationManager *locationManager;
@@ -23,8 +25,12 @@
     
     self.title = @"Map prices";
     
+    
+    
     self.mapView = [[MKMapView alloc] initWithFrame:self.view.bounds];
     self.mapView.showsUserLocation = YES;
+    self.mapView.delegate = self;
+    
     [self.view addSubview:self.mapView];
     
     [[DataManager sharedInstance] loadData];
@@ -71,9 +77,26 @@
             annotation.title = [NSString stringWithFormat:@"%@ (%@)", price.destination.name, price.destination.code];
             annotation.subtitle = [NSString stringWithFormat:@"%ld руб.", (long)price.value];
             annotation.coordinate = price.destination.coordinate;
+            
             [self.mapView addAnnotation: annotation];
         });
     }
+}
+
+#pragma mark - Map view delegate
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
+    MKAnnotationView *annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:AnnotationIdentifier];
+    
+    if (annotationView) {
+        annotationView.annotation = annotation;
+    } else {
+        annotationView = [[MKMarkerAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:AnnotationIdentifier];
+        annotationView.canShowCallout = YES;
+        annotationView.calloutOffset = CGPointMake(0.0, 5.0);
+        annotationView.rightCalloutAccessoryView = [UIButton systemButtonWithImage:[UIImage systemImageNamed:@"plus"] target:nil action:nil];
+    }
+    return annotationView;
 }
 
 @end
