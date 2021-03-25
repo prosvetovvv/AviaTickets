@@ -22,6 +22,18 @@
     return self;
 }
 
+- (instancetype)initWithMapPrice:(MapPrice *)mapPrice {
+    self = [super init];
+    if (self) {
+        _price = @(mapPrice.value);
+        _from = mapPrice.origin.code;
+        _to = mapPrice.destination.code;
+        _airline = mapPrice.airline;
+        _departure = mapPrice.departure;
+    }
+    return self;
+}
+
 NSDate *dateFromString(NSString *dateString) {
     if (!dateString) { return  nil; }
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];

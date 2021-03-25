@@ -23,6 +23,11 @@
     
     [self setupSelf];
     [self setupSegmentedControl];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
+    
     [self changeSource];
 }
 
@@ -37,7 +42,6 @@
             self.currentTickets = [[CoreDataManager sharedInstance] mapTickets];
             break;
     }
-    
     [self.tableView reloadData];
 }
 
@@ -52,7 +56,7 @@
 }
 
 - (void)setupSegmentedControl {
-    self.segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"Favorites", @"From map"]];
+    self.segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"Search", @"Map"]];
     self.navigationItem.titleView = self.segmentedControl;
     self.segmentedControl.tintColor = [UIColor blackColor];
     self.segmentedControl.selectedSegmentIndex = 0;
@@ -70,8 +74,14 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TicketCell *cell = [tableView dequeueReusableCellWithIdentifier:ReuseIdentifier forIndexPath:indexPath];
     
-    cell.favoriteTicket = self.currentTickets[indexPath.row];
-    
+    switch (self.segmentedControl.selectedSegmentIndex) {
+        case 0:
+            cell.favoriteTicket = self.currentTickets[indexPath.row];
+            break;
+        case 1:
+            cell.mapTicket = self.currentTickets[indexPath.row];
+            break;
+    }
     return cell;
 }
 
@@ -80,6 +90,5 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 140;
 }
-
 
 @end

@@ -86,5 +86,19 @@
     [[APIManager sharedInstance] downloadPhotoFrom:urlLogo to:self.airlineLogoView];    
 }
 
+- (void)setMapTicket:(MapTicket *)mapTicket {
+    _mapTicket = mapTicket;
+    
+    self.priceLabel.text = [NSString stringWithFormat:@"%lld руб.", mapTicket.price];
+    self.placesLabel.text = [NSString stringWithFormat:@"%@ - %@", mapTicket.from, mapTicket.to];
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"dd MMMM yyyy hh:mm";
+    self.dateLabel.text = [dateFormatter stringFromDate:mapTicket.departureDate];
+    
+    NSString *urlLogo = [NSString stringWithFormat:@"https://pics.avs.io/200/200/%@.png", mapTicket.airline];
+    [[APIManager sharedInstance] downloadPhotoFrom:urlLogo to:self.airlineLogoView];
+}
+
 
 @end

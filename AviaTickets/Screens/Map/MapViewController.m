@@ -72,11 +72,14 @@
     [self.mapView removeAnnotations: self.mapView.annotations];
     
     for (MapPrice *price in prices) {
+        Ticket *ticket = [[Ticket alloc] initWithMapPrice:price];
+        
         dispatch_async(dispatch_get_main_queue(), ^{
             MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
             annotation.title = [NSString stringWithFormat:@"%@ (%@)", price.destination.name, price.destination.code];
             annotation.subtitle = [NSString stringWithFormat:@"%ld руб.", (long)price.value];
             annotation.coordinate = price.destination.coordinate;
+            annotation.ticket = ticket;
             
             [self.mapView addAnnotation: annotation];
         });
@@ -97,6 +100,17 @@
         annotationView.rightCalloutAccessoryView = [UIButton systemButtonWithImage:[UIImage systemImageNamed:@"plus"] target:nil action:nil];
     }
     return annotationView;
+}
+
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
+    MKPointAnnotation *selectedAnnotation = (MKPointAnnotation *)view.annotation;
+    
+    [[CoreDataManager sharedInstance] addToSelectedFromMap:selectedAnnotation.ticket];
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Add ticket" message:@"Ticket added to favorites" preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 @end

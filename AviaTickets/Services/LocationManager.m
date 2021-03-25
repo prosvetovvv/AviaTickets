@@ -54,14 +54,9 @@
             [[[UIApplication sharedApplication].windows firstObject].rootViewController presentViewController:alert animated:YES completion:nil];
             break;
         }
-            
-            
         default: {
-            
-            
             break;
         }
-            
     }
 }
 

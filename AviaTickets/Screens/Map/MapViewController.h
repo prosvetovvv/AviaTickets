@@ -11,6 +11,8 @@
 #import "LocationManager.h"
 #import "APIManager.h"
 #import "MapPrice.h"
+#import "MKPointAnnotation+Ticket.h"
+#import "CoreDataManager.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -37,6 +37,8 @@
 		E19F0FDA260B2C0C00704C5D /* MapTicket+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = E19F0FD8260B2C0C00704C5D /* MapTicket+CoreDataClass.m */; };
 		E19F0FDB260B2C0C00704C5D /* MapTicket+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = E19F0FD9260B2C0C00704C5D /* MapTicket+CoreDataProperties.m */; };
 		E19F0FE5260B4D3E00704C5D /* FavoritesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E19F0FE4260B4D3E00704C5D /* FavoritesTableViewController.m */; };
+		E19F0FF2260C666100704C5D /* MKPointAnnotation+Ticket.m in Sources */ = {isa = PBXBuildFile; fileRef = E19F0FF1260C666100704C5D /* MKPointAnnotation+Ticket.m */; };
+		E19F0FFC260CB17200704C5D /* DataSourceType.h in Sources */ = {isa = PBXBuildFile; fileRef = E19F0FFB260CB17200704C5D /* DataSourceType.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,6 +97,9 @@
 		E19F0FD9260B2C0C00704C5D /* MapTicket+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "MapTicket+CoreDataProperties.m"; sourceTree = SOURCE_ROOT; };
 		E19F0FE3260B4D3E00704C5D /* FavoritesTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FavoritesTableViewController.h; sourceTree = "<group>"; };
 		E19F0FE4260B4D3E00704C5D /* FavoritesTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FavoritesTableViewController.m; sourceTree = "<group>"; };
+		E19F0FF0260C666100704C5D /* MKPointAnnotation+Ticket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "MKPointAnnotation+Ticket.h"; path = "AviaTickets/Screens/Map/MKPointAnnotation+Ticket.h"; sourceTree = SOURCE_ROOT; };
+		E19F0FF1260C666100704C5D /* MKPointAnnotation+Ticket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "MKPointAnnotation+Ticket.m"; path = "AviaTickets/Screens/Map/MKPointAnnotation+Ticket.m"; sourceTree = SOURCE_ROOT; };
+		E19F0FFB260CB17200704C5D /* DataSourceType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataSourceType.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,8 +164,11 @@
 		E166C31425F5268800BB7EEF /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				E19F0FF0260C666100704C5D /* MKPointAnnotation+Ticket.h */,
+				E19F0FF1260C666100704C5D /* MKPointAnnotation+Ticket.m */,
 				E166C31525F5269500BB7EEF /* SearchRequest.h */,
 				E18B7D2025F7BC8B00F6630B /* PlaceType.h */,
+				E19F0FFB260CB17200704C5D /* DataSourceType.h */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -398,6 +406,8 @@
 				E162516425F3D8B90034CBA9 /* Country.m in Sources */,
 				E19F0F452600BFB700704C5D /* TicketCell.m in Sources */,
 				E19F0F75260371A100704C5D /* TabBarController.m in Sources */,
+				E19F0FFC260CB17200704C5D /* DataSourceType.h in Sources */,
+				E19F0FF2260C666100704C5D /* MKPointAnnotation+Ticket.m in Sources */,
 				E191B0CD25F3F47900CE4FC6 /* DataManager.m in Sources */,
 				E19F0FDB260B2C0C00704C5D /* MapTicket+CoreDataProperties.m in Sources */,
 				E19F0F4A2600C61500704C5D /* APIManager.m in Sources */,

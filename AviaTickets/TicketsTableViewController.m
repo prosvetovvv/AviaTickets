@@ -12,7 +12,6 @@
 @interface TicketsTableViewController ()
 
 @property (nonatomic, strong) NSArray *tickets;
-@property (nonatomic, assign) BOOL isFavorites;
 
 @end
 
@@ -22,17 +21,7 @@
     self = [super init];
     if (self) {
         _tickets = tickets;
-        //        self.title = @"Tickets";
-        //        self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        //        [self.tableView registerClass:[TicketCell class] forCellReuseIdentifier:TicketCellReuseIdentifier];
     }
-    return self;
-}
-
-- (instancetype)initFavoriteTicketsController {
-    self = [self initWithTickets:@[]];
-    self.isFavorites = YES;
-    
     return self;
 }
 
@@ -40,24 +29,13 @@
     [super viewDidLoad];
     
     [self setupSelf];
-    
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    if (self. isFavorites) {
-        self.navigationController.navigationBar.prefersLargeTitles = YES;
-        self.tickets = [[CoreDataManager sharedInstance] favorites];
-        [self.tableView reloadData];
-    }
 }
 
 #pragma mark - Private
 
 - (void)setupSelf {
-    self.title = self.isFavorites ? @"Favorites" : @"Tickets";
-    self.navigationController.navigationBar.prefersLargeTitles = self.isFavorites;
+    self.title = @"Tickets";
+    self.navigationController.navigationBar.prefersLargeTitles = YES;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     [self.tableView registerClass:[TicketCell class] forCellReuseIdentifier:TicketCellReuseIdentifier];
@@ -72,22 +50,14 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TicketCell *cell = [tableView dequeueReusableCellWithIdentifier:TicketCellReuseIdentifier forIndexPath:indexPath];
     
-    //cell.ticket = [self.tickets objectAtIndex:indexPath.row];
+    cell.ticket = [self.tickets objectAtIndex:indexPath.row];
     
-    
-    if (self.isFavorites) {
-        cell.favoriteTicket = self.tickets[indexPath.row];
-    } else {
-        cell.ticket = self.tickets[indexPath.row];
-    }
     return cell;
 }
 
 #pragma mark - TableView delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (self.isFavorites)
-        return;
     
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Action with ticket" message:@"What should do with this ticket?" preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *favoriteAction;

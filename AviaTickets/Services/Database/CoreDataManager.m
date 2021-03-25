@@ -21,11 +21,11 @@
     dispatch_once(&onceToken, ^{
         instance = [CoreDataManager new];
     });
-    
     return instance ;
 }
 
 #pragma mark - CoreData Stack
+
 @synthesize persistentContainer = _persistentContainer;
 
 - (NSPersistentContainer *)persistentContainer {
@@ -40,7 +40,6 @@
             }];
         }
     }
-    
     return _persistentContainer;
 }
 
@@ -69,7 +68,6 @@
         NSLog(@"Error: %@", error.localizedDescription);
         return nil;
     }
-    
     return tickets.firstObject;
 }
 
@@ -111,7 +109,6 @@
     if (error) {
         NSLog(@"Error: %@", error.localizedDescription);
     }
-    
     return tickets;
 }
 
@@ -167,7 +164,5 @@
     }
     return tickets;
 }
-
-
 
 @end
