@@ -6,9 +6,8 @@
 //
 
 #import "AppDelegate.h"
-#import "MainViewController.h"
-#import "MapViewController.h"
-#import "TabBarController.h"
+
+
 
 @interface AppDelegate ()
 
@@ -27,6 +26,8 @@
     self.window.rootViewController = tabBarController;
     
     [self.window makeKeyAndVisible];
+    
+    [[NotificationCenter sharedInstance] registerService];
     
     return YES;
 }

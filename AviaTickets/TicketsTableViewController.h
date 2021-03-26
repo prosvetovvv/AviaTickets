@@ -8,6 +8,8 @@
 #import <UIKit/UIKit.h>
 #import "TicketCell.h"
 #import "CoreDataManager.h"
+#import "NotificationCenter.h"
+#import <UserNotifications/UserNotifications.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

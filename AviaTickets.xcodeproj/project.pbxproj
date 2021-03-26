@@ -39,6 +39,7 @@
 		E19F0FE5260B4D3E00704C5D /* FavoritesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E19F0FE4260B4D3E00704C5D /* FavoritesTableViewController.m */; };
 		E19F0FF2260C666100704C5D /* MKPointAnnotation+Ticket.m in Sources */ = {isa = PBXBuildFile; fileRef = E19F0FF1260C666100704C5D /* MKPointAnnotation+Ticket.m */; };
 		E19F0FFC260CB17200704C5D /* DataSourceType.h in Sources */ = {isa = PBXBuildFile; fileRef = E19F0FFB260CB17200704C5D /* DataSourceType.h */; };
+		E19F1001260DE9BC00704C5D /* NotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = E19F1000260DE9BC00704C5D /* NotificationCenter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +101,8 @@
 		E19F0FF0260C666100704C5D /* MKPointAnnotation+Ticket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "MKPointAnnotation+Ticket.h"; path = "AviaTickets/Screens/Map/MKPointAnnotation+Ticket.h"; sourceTree = SOURCE_ROOT; };
 		E19F0FF1260C666100704C5D /* MKPointAnnotation+Ticket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "MKPointAnnotation+Ticket.m"; path = "AviaTickets/Screens/Map/MKPointAnnotation+Ticket.m"; sourceTree = SOURCE_ROOT; };
 		E19F0FFB260CB17200704C5D /* DataSourceType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataSourceType.h; sourceTree = "<group>"; };
+		E19F0FFF260DE9BC00704C5D /* NotificationCenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationCenter.h; sourceTree = "<group>"; };
+		E19F1000260DE9BC00704C5D /* NotificationCenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationCenter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +213,8 @@
 				E185622C25F3CEB90066B6BA /* AppDelegate.m */,
 				E19F0F73260371A100704C5D /* TabBarController.h */,
 				E19F0F74260371A100704C5D /* TabBarController.m */,
+				E19F0FFF260DE9BC00704C5D /* NotificationCenter.h */,
+				E19F1000260DE9BC00704C5D /* NotificationCenter.m */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -412,6 +417,7 @@
 				E19F0FDB260B2C0C00704C5D /* MapTicket+CoreDataProperties.m in Sources */,
 				E19F0F4A2600C61500704C5D /* APIManager.m in Sources */,
 				E185623325F3CEB90066B6BA /* MainViewController.m in Sources */,
+				E19F1001260DE9BC00704C5D /* NotificationCenter.m in Sources */,
 				E19F0F6A2602390D00704C5D /* MapPrice.m in Sources */,
 				E19F0FC32609D92000704C5D /* FavoriteTicket+CoreDataProperties.m in Sources */,
 				E19F0F612602218900704C5D /* LocationManager.m in Sources */,
