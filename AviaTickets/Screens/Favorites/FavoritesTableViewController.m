@@ -87,6 +87,11 @@
 
 #pragma mark - Table view delegate
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    TicketCell *tappedCell = [tableView cellForRowAtIndexPath:indexPath];
+    [tappedCell startAnimation];
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 140;
 }

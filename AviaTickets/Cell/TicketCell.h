@@ -24,6 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UILabel *placesLabel;
 @property (nonatomic, strong) UILabel *dateLabel;
 
+- (void)startAnimation;
+
 @end
 
 NS_ASSUME_NONNULL_END

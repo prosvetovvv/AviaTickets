@@ -25,10 +25,6 @@ TicketCell *notificationCell;
     self = [super init];
     if (self) {
         _tickets = tickets;
-        [self setupSelf];
-        [self setupDatePicker];
-        [self setupTextField];
-        [self setupToolBar];
     }
     return self;
 }
@@ -36,9 +32,10 @@ TicketCell *notificationCell;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    [self setupSelf];
-//    [self setupDatePicker];
-//    [self setupToolBar];
+    [self setupSelf];
+    [self setupDatePicker];
+    [self setupTextField];
+    [self setupToolBar];
 }
 
 #pragma mark - Setup UI
@@ -53,8 +50,6 @@ TicketCell *notificationCell;
 
 - (void)setupDatePicker {
     self.datePicker = [UIDatePicker new];
-    //self.datePicker.datePickerMode = UIDatePickerModeDateAndTime;
-    //self.datePicker.datePickerMode = UIDatePickerStyleWheels;
     self.datePicker.preferredDatePickerStyle = UIDatePickerStyleWheels;
     self.datePicker.minimumDate = [NSDate date];
 }
@@ -76,8 +71,6 @@ TicketCell *notificationCell;
     
     keyboardToolbar.items = @[flexBarButton, doneBarButton];
     self.dateTextField.inputAccessoryView = keyboardToolbar;
-    
-//    [self.view addSubview:self.dateTextField];
 }
 
 #pragma mark - Private
@@ -97,8 +90,7 @@ TicketCell *notificationCell;
             }
             imageURL = [NSURL fileURLWithPath:path];
         }
-
-        //Notification notification = NotificationMake(@"Напоминание о билете", message, _datePicker.date, imageURL);
+        
         Notification notification = [[NotificationCenter sharedInstance] makeNotification:@"Напоминание о билете" body:message date:self.datePicker.date imageURL:imageURL];
         [[NotificationCenter sharedInstance] sendNotification:notification];
 
@@ -130,6 +122,7 @@ TicketCell *notificationCell;
 #pragma mark - TableView delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    notificationCell = [tableView cellForRowAtIndexPath:indexPath];
     
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Action with ticket" message:@"What should do with this ticket?" preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *favoriteAction;
@@ -145,17 +138,19 @@ TicketCell *notificationCell;
         }];
     }
     
+    [notificationCell startAnimation];
+    
     UIAlertAction *notificationAction = [UIAlertAction actionWithTitle:@"Напомнить" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        notificationCell = [tableView cellForRowAtIndexPath:indexPath];
+        //notificationCell = [tableView cellForRowAtIndexPath:indexPath];
         [self.dateTextField becomeFirstResponder];
     }];
 
-    
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Close" style:UIAlertActionStyleCancel handler:nil];
     [alertController addAction:favoriteAction];
     [alertController addAction:cancelAction];
     [alertController addAction:notificationAction];
     [self presentViewController:alertController animated:YES completion:nil];
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

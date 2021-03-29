@@ -45,6 +45,17 @@
     return self;
 }
 
+- (void)startAnimation {
+    [UIView animateWithDuration:1.0 animations:^{
+        self.contentView.frame = CGRectMake(0.0, 0.0, [UIScreen mainScreen].bounds.size.width, self.frame.size.height - 10.0);
+    }];
+    
+//    [UIView animateWithDuration:1.0 delay:0.0 options:UIViewAnimationOptionCurveLinear animations:^{
+//        self.contentView.frame = CGRectMake(10.0, 10.0, [UIScreen mainScreen].bounds.size.width, self.frame.size.height);
+//        //self.contentView.layer.cornerRadius = 50.0;
+//    } completion:nil];
+}
+
 - (void)layoutSubviews {
     [super layoutSubviews];
     
