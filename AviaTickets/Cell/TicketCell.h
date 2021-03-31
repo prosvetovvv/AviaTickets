@@ -18,13 +18,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) Ticket *ticket;
 @property (nonatomic, strong) FavoriteTicket *favoriteTicket;
 @property (nonatomic, strong) MapTicket *mapTicket;
+@property (nonatomic, assign) BOOL isSelected;
 
 @property (nonatomic, strong) UIImageView *airlineLogoView;
 @property (nonatomic, strong) UILabel *priceLabel;
 @property (nonatomic, strong) UILabel *placesLabel;
 @property (nonatomic, strong) UILabel *dateLabel;
-
-- (void)startAnimation;
 
 @end
 

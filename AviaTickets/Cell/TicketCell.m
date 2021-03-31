@@ -9,8 +9,6 @@
 
 @interface TicketCell ()
 
-
-
 @end
 
 @implementation TicketCell
@@ -20,7 +18,7 @@
     if (self) {
         self.contentView.layer.shadowColor = [[[UIColor blackColor] colorWithAlphaComponent:0.2] CGColor];
         self.contentView.layer.shadowOffset = CGSizeMake(1.0, 1.0);
-        self.contentView.layer.shadowRadius = 10.0;
+        self.contentView.layer.shadowRadius = 8.0;
         self.contentView.layer.shadowOpacity = 1.0;
         self.contentView.layer.cornerRadius = 6.0;
         self.contentView.backgroundColor = [UIColor whiteColor];
@@ -41,19 +39,22 @@
         _dateLabel = [[UILabel alloc] initWithFrame:self.bounds];
         _dateLabel.font = [UIFont systemFontOfSize:15.0 weight:UIFontWeightRegular];
         [self.contentView addSubview:_dateLabel];
+        
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return self;
 }
 
-- (void)startAnimation {
-    [UIView animateWithDuration:1.0 animations:^{
-        self.contentView.frame = CGRectMake(0.0, 0.0, [UIScreen mainScreen].bounds.size.width, self.frame.size.height - 10.0);
+- (void)selectedAnimation {
+    [UIView animateWithDuration:0.5 animations:^{
+        self.contentView.layer.cornerRadius = 25.0;
     }];
-    
-//    [UIView animateWithDuration:1.0 delay:0.0 options:UIViewAnimationOptionCurveLinear animations:^{
-//        self.contentView.frame = CGRectMake(10.0, 10.0, [UIScreen mainScreen].bounds.size.width, self.frame.size.height);
-//        //self.contentView.layer.cornerRadius = 50.0;
-//    } completion:nil];
+}
+
+- (void)unselectedAnimation {
+    [UIView animateWithDuration:0.5 animations:^{
+        self.contentView.layer.cornerRadius = 6.0;
+    }];
 }
 
 - (void)layoutSubviews {
@@ -91,7 +92,7 @@
     self.dateLabel.text = [dateFormatter stringFromDate:favoriteTicket.departure];
     
     NSString *urlLogo = [NSString stringWithFormat:@"https://pics.avs.io/200/200/%@.png", favoriteTicket.airline];
-    [[APIManager sharedInstance] downloadPhotoFrom:urlLogo to:self.airlineLogoView];    
+    [[APIManager sharedInstance] downloadPhotoFrom:urlLogo to:self.airlineLogoView];
 }
 
 - (void)setMapTicket:(MapTicket *)mapTicket {
@@ -108,5 +109,14 @@
     [[APIManager sharedInstance] downloadPhotoFrom:urlLogo to:self.airlineLogoView];
 }
 
+- (void)setIsSelected:(BOOL)isSelected {
+    _isSelected = isSelected;
+    
+    if (isSelected) {
+        [self selectedAnimation];
+    } else {
+        [self unselectedAnimation];
+    }
+}
 
 @end

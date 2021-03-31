@@ -13,6 +13,7 @@
 
 @property (nonatomic, strong) UISegmentedControl *segmentedControl;
 @property (nonatomic, strong) NSArray *currentTickets;
+@property (nonatomic, strong) TicketCell *selectedCell;
 
 @end
 
@@ -87,13 +88,19 @@
 
 #pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    TicketCell *tappedCell = [tableView cellForRowAtIndexPath:indexPath];
-    [tappedCell startAnimation];
-}
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 140;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.selectedCell) {
+        //[self.selectedCell unselectedAnimation];
+        self.selectedCell.isSelected = NO;
+    }
+    
+    self.selectedCell = [tableView cellForRowAtIndexPath:indexPath];
+    //[self.selectedCell selectedAnimation];
+    self.selectedCell.isSelected = YES;
 }
 
 @end
