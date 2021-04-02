@@ -70,7 +70,7 @@
 - (void)setTicket:(Ticket *)ticket {
     _ticket = ticket;
     
-    self.priceLabel.text = [NSString stringWithFormat:@"%@ руб.", ticket.price];
+    self.priceLabel.text = [NSString stringWithFormat:@"%@ %@.", ticket.price, Currency];
     self.placesLabel.text = [NSString stringWithFormat:@"%@ - %@", ticket.from, ticket.to];
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -84,7 +84,7 @@
 - (void)setFavoriteTicket:(FavoriteTicket *)favoriteTicket {
     _favoriteTicket = favoriteTicket;
     
-    self.priceLabel.text = [NSString stringWithFormat:@"%lld руб.", favoriteTicket.price];
+    self.priceLabel.text = [NSString stringWithFormat:@"%lld %@.", favoriteTicket.price, Currency];
     self.placesLabel.text = [NSString stringWithFormat:@"%@ - %@", favoriteTicket.from, favoriteTicket.to];
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -98,7 +98,7 @@
 - (void)setMapTicket:(MapTicket *)mapTicket {
     _mapTicket = mapTicket;
     
-    self.priceLabel.text = [NSString stringWithFormat:@"%lld руб.", mapTicket.price];
+    self.priceLabel.text = [NSString stringWithFormat:@"%lld %@.", mapTicket.price, Currency];
     self.placesLabel.text = [NSString stringWithFormat:@"%@ - %@", mapTicket.from, mapTicket.to];
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];

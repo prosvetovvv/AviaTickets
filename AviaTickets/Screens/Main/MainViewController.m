@@ -37,7 +37,7 @@
 #pragma mark - Setup UI
 
 - (void)setupSelf {
-    self.title = @"Search";
+    self.title = TitleMainViewController;
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationController.navigationBar.prefersLargeTitles = YES;
 }
@@ -61,7 +61,7 @@
     self.departureButton.layer.cornerRadius = 10;
     self.departureButton.backgroundColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.3];
     self.departureButton.tintColor = [UIColor blackColor];
-    [self.departureButton setTitle:@"Departure" forState: UIControlStateNormal];
+    [self.departureButton setTitle:DepartureButtonTitle forState: UIControlStateNormal];
     [self.departureButton addTarget:self action:@selector(placeButtonDidTap:) forControlEvents:UIControlEventTouchUpInside];
     
     [self.placeContainerView addSubview:self.departureButton];
@@ -73,7 +73,7 @@
     self.arrivalButton.layer.cornerRadius = 10;
     self.arrivalButton.backgroundColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.3];
     self.arrivalButton.tintColor = [UIColor blackColor];
-    [self.arrivalButton setTitle:@"Arrival" forState: UIControlStateNormal];
+    [self.arrivalButton setTitle:ArrivalButtonTitle forState: UIControlStateNormal];
     [self.arrivalButton addTarget:self action:@selector(placeButtonDidTap:) forControlEvents:UIControlEventTouchUpInside];
     
     [self.placeContainerView addSubview:self.arrivalButton];
@@ -82,7 +82,7 @@
 - (void)setupSearchButton {
     self.searchButton = [UIButton buttonWithType:UIButtonTypeSystem];
     self.searchButton.frame = CGRectMake(30.0, CGRectGetMaxY(self.placeContainerView.frame) + 30, [UIScreen mainScreen].bounds.size.width - 60.0, 60.0);
-    [self.searchButton setTitle:@"Search" forState:UIControlStateNormal];
+    [self.searchButton setTitle:SearchButtonTitle forState:UIControlStateNormal];
     self.searchButton.tintColor = [UIColor whiteColor];
     self.searchButton.backgroundColor = [UIColor blackColor];
     self.searchButton.layer.cornerRadius = 8.0;
@@ -115,8 +115,13 @@
             TicketsTableViewController *ticketsTableViewController = [[TicketsTableViewController alloc] initWithTickets:tickets];
             [self.navigationController showViewController:ticketsTableViewController sender:self];
         } else {
-            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Увы!" message:@"По данному направлению билетов не найдено" preferredStyle: UIAlertControllerStyleAlert];
-            [alertController addAction:[UIAlertAction actionWithTitle:@"Закрыть" style:(UIAlertActionStyleDefault) handler:nil]];
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:AlertTitle
+                                                                                     message:AlertMessage
+                                                                              preferredStyle: UIAlertControllerStyleAlert];
+            [alertController addAction:[UIAlertAction actionWithTitle:AlertActionClose
+                                                                style:(UIAlertActionStyleDefault)
+                                                              handler:nil]];
+            
             [self presentViewController:alertController animated:YES completion:nil];
         }
     }];

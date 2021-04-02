@@ -49,7 +49,7 @@
 #pragma mark - Setup UI
 
 - (void)setupSelf {
-    self.title = @"Favorites";
+    self.title = TitleFavoritesTableViewController;
     self.navigationController.navigationBar.prefersLargeTitles = YES;
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     
@@ -57,7 +57,7 @@
 }
 
 - (void)setupSegmentedControl {
-    self.segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"Search", @"Map"]];
+    self.segmentedControl = [[UISegmentedControl alloc] initWithItems:@[SegmentItemSearch , SegmentItemMap]];
     self.navigationItem.titleView = self.segmentedControl;
     self.segmentedControl.tintColor = [UIColor blackColor];
     self.segmentedControl.selectedSegmentIndex = 0;

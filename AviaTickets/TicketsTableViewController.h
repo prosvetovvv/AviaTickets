@@ -10,6 +10,7 @@
 #import "CoreDataManager.h"
 #import "NotificationCenter.h"
 #import <UserNotifications/UserNotifications.h>
+#import "ConstantsLocalization.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

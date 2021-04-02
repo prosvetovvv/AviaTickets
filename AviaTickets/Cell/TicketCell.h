@@ -10,6 +10,7 @@
 #import "APIManager.h"
 #import "FavoriteTicket+CoreDataClass.h"
 #import "MapTicket+CoreDataClass.h"
+#import "ConstantsLocalization.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

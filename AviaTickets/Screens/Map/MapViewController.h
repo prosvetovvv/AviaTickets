@@ -13,6 +13,7 @@
 #import "MapPrice.h"
 #import "MKPointAnnotation+Ticket.h"
 #import "CoreDataManager.h"
+#import "ConstantsLocalization.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
