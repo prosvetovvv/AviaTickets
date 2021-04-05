@@ -94,12 +94,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (self.selectedCell) {
-        //[self.selectedCell unselectedAnimation];
         self.selectedCell.isSelected = NO;
     }
     
     self.selectedCell = [tableView cellForRowAtIndexPath:indexPath];
-    //[self.selectedCell selectedAnimation];
     self.selectedCell.isSelected = YES;
 }
 
