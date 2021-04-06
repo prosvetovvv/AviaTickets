@@ -60,6 +60,16 @@
     return [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
 }
 
+- (City *)cityForIATA:(NSString *)iata {
+    if (iata) {
+        for (City *city in _citiesArray) {
+            if ([city.code isEqualToString:iata]) {
+                return city;
+            }
+        }
+    }
+    return nil;
+}
 
 - (NSMutableArray *)createObjectsFromArray:(NSArray *)array withType:(DataSourceType)type
 {
@@ -88,23 +98,16 @@
         }
     }
     
-    
-//    for (NSDictionary *jsonObject in array) {
-//        if (type == DataSourceTypeCountry) {
-//            Country *country = [[Country alloc] initWithDictionary:jsonObject];
-//            [results addObject:country];
-//        }
-//        else if (type == DataSourceTypeCity) {
-//            City *city = [[City alloc] initWithDictionary:jsonObject];
-//            [results addObject:city];
-//        }
-//        else if (type == DataSourceTypeAirport) {
-//            Airport *airport = [[Airport alloc] initWithDictionary:jsonObject];
-//            [results addObject:airport];
-//        }
-//    }
-    
     return results;
+}
+
+- (City *)cityForLocation:(CLLocation *)location {
+    for (City *city in _citiesArray) {
+        if (ceilf(city.coordinate.latitude) == ceilf(location.coordinate.latitude) && ceilf(city.coordinate.longitude) == ceilf(location.coordinate.longitude)) {
+            return city;
+        }
+    }
+    return nil;
 }
 
 - (NSArray *)countries

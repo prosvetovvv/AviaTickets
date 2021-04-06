@@ -6,6 +6,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MainViewController.h"
+#import "MapViewController.h"
+#import "TabBarController.h"
+#import "NotificationCenter.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

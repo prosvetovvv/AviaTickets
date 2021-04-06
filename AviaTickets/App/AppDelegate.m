@@ -6,7 +6,8 @@
 //
 
 #import "AppDelegate.h"
-#import "MainViewController.h"
+
+
 
 @interface AppDelegate ()
 
@@ -20,12 +21,13 @@
     CGRect frame = [[UIScreen mainScreen] bounds];
     self.window = [[UIWindow alloc] initWithFrame:frame];
     
-    MainViewController *mainViewController = [MainViewController new];
+    TabBarController *tabBarController = [TabBarController new];
     
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:mainViewController];
+    self.window.rootViewController = tabBarController;
     
-    self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
+    
+    [[NotificationCenter sharedInstance] registerService];
     
     return YES;
 }
