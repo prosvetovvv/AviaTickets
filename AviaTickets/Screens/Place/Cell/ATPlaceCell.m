@@ -87,10 +87,10 @@
     [self.contentView addSubview:self.image];
 }
 
--(void)layoutSubviews {
-    [super layoutSubviews];
-    
-    //self.image.frame = CGRectMake(WeightCell - WeightImageView, self.contentView.center.y, WeightImageView, HeightImageView);
-}
+//-(void)layoutSubviews {
+//    [super layoutSubviews];
+//    
+//    //self.image.frame = CGRectMake(WeightCell - WeightImageView, self.contentView.center.y, WeightImageView, HeightImageView);
+//}
 
 @end

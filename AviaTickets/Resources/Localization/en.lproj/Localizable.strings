@@ -1,0 +1,56 @@
+/* 
+  Localizable.strings
+  AviaTickets
+
+  Created by Vitaly Prosvetov on 31.03.2021.
+  
+*/
+
+"currency" = "rub";
+
+//TabBarController
+"tabBarItemSearch" = "Search";
+"tabBarItemMap" = "Map prices";
+"tabBarItemFavorites" = "Favorites";
+
+// MainViewController
+"searchTitle" = "Search";
+"departureButtonTitle" = "Departure";
+"arrivalButtonTitle" ="Arrival";
+"searchButtonTitle" = "Search";
+"alertTitle" = "Oops";
+"alertMessage" = "Don't find tickets for this direction.";
+"alertActionClose" = "Close";
+
+// FavoritesTableViewController
+"favoritesTitle" = "Favorites";
+"segmentItemSearch" = "Search";
+"segmentItemMap" = "Map";
+
+// TicketsTableViewController
+"ticketsTitle" = "Tickets";
+"notificationTitleReminder" = "Ticket reminder";
+"alertTitle" = "Successful";
+"alertMessage" = "Notification will be send";
+"alertActionClose" = "Close";
+"actionSheetTitle" = "Action with ticket";
+"actionSheetMessage" = "What should do with this ticket?";
+"actionSheetActionRemind" = "Remind";
+"actionSheetClose" = "Close";
+"actionTitleDelete" = "Delete from Favorites";
+"actionTitleAdd" = "Add to Favorites";
+
+// PlaceViewController
+"titleDeparture" = "Departure";
+"titleArrival" = "Arrival";
+"segmentItemCities" = "Cities";
+"segmentItemAirports" = "Airports";
+
+// MapViewController
+"titleMapViewController" = "Map prices";
+"alertTitleMapViewController" = "Add ticket";
+"alertMessageMapViewController" = "Ticket added to favorites";
+
+
+
+

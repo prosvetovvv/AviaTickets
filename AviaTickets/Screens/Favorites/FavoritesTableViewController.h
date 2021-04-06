@@ -8,6 +8,7 @@
 #import <UIKit/UIKit.h>
 #import "CoreDataManager.h"
 #import "TicketCell.h"
+#import "ConstantsLocalization.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

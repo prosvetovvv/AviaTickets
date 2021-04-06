@@ -26,7 +26,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)sendNotification:(Notification)notification;
 
 - (Notification) makeNotification:(NSString *)title body:(NSString *)body date:(NSDate *)date imageURL:(NSURL *)imageURL;
-//Notification NotificationMake(NSString* _Nullable title, NSString* _Nonnull body, NSDate* _Nonnull date, NSURL * _Nullable  imageURL);
 
 @end
 

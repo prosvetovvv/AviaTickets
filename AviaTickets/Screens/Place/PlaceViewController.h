@@ -8,6 +8,7 @@
 #import <UIKit/UIKit.h>
 #import "DataManager.h"
 #import "PlaceType.h"
+#import "ConstantsLocalization.h"
 
 @protocol PlaceViewControllerDelegate <NSObject>
 - (void)selectPlace:(id)place withType:(PlaceType)placeType andDataType:(DataSourceType)dataType;

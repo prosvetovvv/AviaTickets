@@ -13,6 +13,7 @@
 
 @property (nonatomic, strong) UISegmentedControl *segmentedControl;
 @property (nonatomic, strong) NSArray *currentTickets;
+@property (nonatomic, strong) TicketCell *selectedCell;
 
 @end
 
@@ -48,7 +49,7 @@
 #pragma mark - Setup UI
 
 - (void)setupSelf {
-    self.title = @"Favorites";
+    self.title = TitleFavoritesTableViewController;
     self.navigationController.navigationBar.prefersLargeTitles = YES;
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     
@@ -56,7 +57,7 @@
 }
 
 - (void)setupSegmentedControl {
-    self.segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"Search", @"Map"]];
+    self.segmentedControl = [[UISegmentedControl alloc] initWithItems:@[SegmentItemSearch , SegmentItemMap]];
     self.navigationItem.titleView = self.segmentedControl;
     self.segmentedControl.tintColor = [UIColor blackColor];
     self.segmentedControl.selectedSegmentIndex = 0;
@@ -87,13 +88,17 @@
 
 #pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    TicketCell *tappedCell = [tableView cellForRowAtIndexPath:indexPath];
-    [tappedCell startAnimation];
-}
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 140;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.selectedCell) {
+        self.selectedCell.isSelected = NO;
+    }
+    
+    self.selectedCell = [tableView cellForRowAtIndexPath:indexPath];
+    self.selectedCell.isSelected = YES;
 }
 
 @end

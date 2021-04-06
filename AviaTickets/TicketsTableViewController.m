@@ -9,17 +9,32 @@
 
 #define TicketCellReuseIdentifier @"TicketCellIdentifier"
 
+//#define Title NSLocalizedString(@"ticketsTitle", @"Title controller")
+//#define Rubles NSLocalizedString(@"rubles", @"Current currency")
+//#define NotificationTitleReminder NSLocalizedString(@"notificationTitleReminder", @"Notification title reminder")
+//#define AlertTitle NSLocalizedString(@"alertTitle", @"Alert title")
+//#define AlertMessage NSLocalizedString(@"alertMessage", @"Alert message")
+//#define AlertActionClose NSLocalizedString(@"alertActionClose", @"Alert action close")
+//
+//#define ActionSheetTitle NSLocalizedString(@"actionSheetTitle", @"ActionSheet title")
+//#define ActionSheetMessage NSLocalizedString(@"actionSheetMessage", @"ActionSheet message")
+//#define ActionSheetActionRemind NSLocalizedString(@"actionSheetActionRemind", @"ActionSheet remind")
+//#define ActionSheetClose NSLocalizedString(@"actionSheetClose", @"ActionSheet close")
+//
+//#define ActionTitleDelete NSLocalizedString(@"actionTitleDelete", @"Alert action delete from favorites")
+//#define ActionTitleAdd NSLocalizedString(@"actionTitleAdd", @"Alert action add to favorites")
+
+
 @interface TicketsTableViewController ()
 
 @property (nonatomic, strong) NSArray *tickets;
 @property (nonatomic, strong) UIDatePicker *datePicker;
 @property (nonatomic, strong) UITextField *dateTextField;
+@property (nonatomic, strong) TicketCell *selectedCell;
 
 @end
 
 @implementation TicketsTableViewController
-
-TicketCell *notificationCell;
 
 - (instancetype)initWithTickets:(NSArray *)tickets {
     self = [super init];
@@ -41,7 +56,7 @@ TicketCell *notificationCell;
 #pragma mark - Setup UI
 
 - (void)setupSelf {
-    self.title = @"Tickets";
+    self.title = Title;
     self.navigationController.navigationBar.prefersLargeTitles = YES;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
@@ -76,31 +91,34 @@ TicketCell *notificationCell;
 #pragma mark - Private
 
 - (void)doneButtonDidTap:(UIBarButtonItem *)sender {
-    if (self.datePicker.date && notificationCell) {
-        NSString *message = [NSString stringWithFormat:@"%@ - %@ за %@ руб.", notificationCell.ticket.from, notificationCell.ticket.to, notificationCell.ticket.price];
-
+    if (self.datePicker.date && self.selectedCell) {
+        NSString *message = [NSString stringWithFormat:@"%@ - %@  %@ %@.", self.selectedCell.ticket.from, self.selectedCell.ticket.to, self.selectedCell.ticket.price, Currency];
+        
         NSURL *imageURL;
-        if (notificationCell.airlineLogoView.image) {
-            NSString *path = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingString:[NSString stringWithFormat:@"/%@.png", notificationCell.ticket.airline]];
+        if (self.selectedCell.airlineLogoView.image) {
+            NSString *path = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingString:[NSString stringWithFormat:@"/%@.png", self.selectedCell.ticket.airline]];
             if (![[NSFileManager defaultManager] fileExistsAtPath:path]) {
-                UIImage *logo = notificationCell.airlineLogoView.image;
+                UIImage *logo = self.selectedCell.airlineLogoView.image;
                 NSData *pngData = UIImagePNGRepresentation(logo);
                 [pngData writeToFile:path atomically:YES];
-
+                
             }
             imageURL = [NSURL fileURLWithPath:path];
         }
         
-        Notification notification = [[NotificationCenter sharedInstance] makeNotification:@"Напоминание о билете" body:message date:self.datePicker.date imageURL:imageURL];
+        Notification notification = [[NotificationCenter sharedInstance] makeNotification:NotificationTitleReminder body:message date:self.datePicker.date imageURL:imageURL];
         [[NotificationCenter sharedInstance] sendNotification:notification];
-
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Успешно" message:[NSString stringWithFormat:@"Уведомление будет отправлено - %@", _datePicker.date] preferredStyle:(UIAlertControllerStyleAlert)];
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Закрыть" style:UIAlertActionStyleCancel handler:nil];
+        
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:AlertTitle
+                                                                                 message:[NSString stringWithFormat:@"%@ - %@", AlertMessage, _datePicker.date] preferredStyle:(UIAlertControllerStyleAlert)];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:AlertActionClose
+                                                               style:UIAlertActionStyleCancel handler:nil];
         [alertController addAction:cancelAction];
         [self presentViewController:alertController animated:YES completion:nil];
     }
     self.datePicker.date = [NSDate date];
-    notificationCell = nil;
+    self.selectedCell.isSelected = NO;
+    self.selectedCell = nil;
     [self.view endEditing:YES];
 }
 
@@ -122,30 +140,49 @@ TicketCell *notificationCell;
 #pragma mark - TableView delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    notificationCell = [tableView cellForRowAtIndexPath:indexPath];
     
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Action with ticket" message:@"What should do with this ticket?" preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    if (self.selectedCell) {
+        self.selectedCell.isSelected = NO;
+    }
+    
+    self.selectedCell = [tableView cellForRowAtIndexPath:indexPath];
+    self.selectedCell.isSelected = YES;
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:ActionSheetTitle
+                                                                             message:ActionSheetMessage
+                                                                      preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *favoriteAction;
     Ticket *ticket = self.tickets[indexPath.row];
     
     if ([[CoreDataManager sharedInstance] isFavorite:ticket]) {
-        favoriteAction = [UIAlertAction actionWithTitle:@"Delete from Favorites" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        favoriteAction = [UIAlertAction actionWithTitle:ActionTitleDelete
+                                                  style:UIAlertActionStyleDestructive
+                                                handler:^(UIAlertAction * _Nonnull action) {
             [[CoreDataManager sharedInstance] removeFromFavorite:ticket];
         }];
     } else {
-        favoriteAction = [UIAlertAction actionWithTitle:@"Add to Favorites" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        favoriteAction = [UIAlertAction actionWithTitle:ActionTitleAdd
+                                                  style:UIAlertActionStyleDefault
+                                                handler:^(UIAlertAction * _Nonnull action) {
             [[CoreDataManager sharedInstance] addToFavorite:ticket];
         }];
     }
     
-    [notificationCell startAnimation];
+    UIAlertAction *notificationAction = [UIAlertAction actionWithTitle:ActionSheetActionRemind
+                                                                 style:UIAlertActionStyleDefault
+                                                               handler:^(UIAlertAction * _Nonnull action) {
     
-    UIAlertAction *notificationAction = [UIAlertAction actionWithTitle:@"Напомнить" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        //notificationCell = [tableView cellForRowAtIndexPath:indexPath];
         [self.dateTextField becomeFirstResponder];
     }];
-
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Close" style:UIAlertActionStyleCancel handler:nil];
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:ActionSheetClose
+                                                           style:UIAlertActionStyleCancel
+                                                         handler:^(UIAlertAction * _Nonnull action) {
+        self.selectedCell.isSelected = NO;
+        self.selectedCell = nil;
+    }];
+    
     [alertController addAction:favoriteAction];
     [alertController addAction:cancelAction];
     [alertController addAction:notificationAction];
