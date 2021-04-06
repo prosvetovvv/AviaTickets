@@ -1,0 +1,52 @@
+/* 
+  Localizable.strings
+  AviaTickets
+
+  Created by Vitaly Prosvetov on 31.03.2021.
+  
+*/
+
+"currency" = "руб";
+
+//TabBarController
+"tabBarItemSearch" = "Поиск";
+"tabBarItemMap" = "Карта цен";
+"tabBarItemFavorites" = "Избранные";
+
+// MainViewController
+"searchTitle" = "Поиск";
+"departureButtonTitle" = "Отправление";
+"arrivalButtonTitle" ="Место назначения";
+"searchButtonTitle" = "Поиск";
+"alertTitle" = "Упс";
+"alertMessage" = "По этому направлению билетов не найдено";
+"alertActionClose" = "Закрыть";
+
+// FavoritesTableViewController
+"favoritesTitle" = "Избранные";
+"segmentItemSearch" = "Поиск";
+"segmentItemMap" = "карта";
+
+// TicketsTableViewController
+"ticketsTitle" = "Билеты";
+"notificationTitleReminder" = "Напомнить";
+"alertTitle" = "Успешно";
+"alertMessage" = "Уведомление будет отправлено";
+"alertActionClose" = "Закрыть";
+"actionSheetTitle" = "Действия с билетом";
+"actionSheetMessage" = "Что сделать с билетом?";
+"actionSheetActionRemind" = "Напомнить";
+"actionSheetClose" = "Закрыть";
+"actionTitleDelete" = "Удалить из Избранных";
+"actionTitleAdd" = "Добавить в Избранные";
+
+// PlaceViewController
+"titleDeparture" = "Отправление";
+"titleArrival" = "Место назначения";
+"segmentItemCities" = "Горада";
+"segmentItemAirports" = "Аэропорты";
+
+// MapViewController
+"titleMapViewController" = "Карта цен";
+"alertTitleMapViewController" = "Добавить билет";
+"alertMessageMapViewController" = "Билет добавлен в Ибранные";

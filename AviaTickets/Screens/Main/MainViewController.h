@@ -11,6 +11,7 @@
 #import "SearchRequest.h"
 #import "APIManager.h"
 #import "TicketsTableViewController.h"
+#import "ConstantsLocalization.h"
 
 @interface MainViewController : UIViewController
 

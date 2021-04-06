@@ -9,11 +9,6 @@
 
 @interface TicketCell ()
 
-@property (nonatomic, strong) UIImageView *airlineLogoView;
-@property (nonatomic, strong) UILabel *priceLabel;
-@property (nonatomic, strong) UILabel *placesLabel;
-@property (nonatomic, strong) UILabel *dateLabel;
-
 @end
 
 @implementation TicketCell
@@ -23,7 +18,7 @@
     if (self) {
         self.contentView.layer.shadowColor = [[[UIColor blackColor] colorWithAlphaComponent:0.2] CGColor];
         self.contentView.layer.shadowOffset = CGSizeMake(1.0, 1.0);
-        self.contentView.layer.shadowRadius = 10.0;
+        self.contentView.layer.shadowRadius = 8.0;
         self.contentView.layer.shadowOpacity = 1.0;
         self.contentView.layer.cornerRadius = 6.0;
         self.contentView.backgroundColor = [UIColor whiteColor];
@@ -44,8 +39,22 @@
         _dateLabel = [[UILabel alloc] initWithFrame:self.bounds];
         _dateLabel.font = [UIFont systemFontOfSize:15.0 weight:UIFontWeightRegular];
         [self.contentView addSubview:_dateLabel];
+        
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return self;
+}
+
+- (void)selectedAnimation {
+    [UIView animateWithDuration:0.5 animations:^{
+        self.contentView.layer.cornerRadius = 25.0;
+    }];
+}
+
+- (void)unselectedAnimation {
+    [UIView animateWithDuration:0.5 animations:^{
+        self.contentView.layer.cornerRadius = 6.0;
+    }];
 }
 
 - (void)layoutSubviews {
@@ -61,7 +70,7 @@
 - (void)setTicket:(Ticket *)ticket {
     _ticket = ticket;
     
-    self.priceLabel.text = [NSString stringWithFormat:@"%@ руб.", ticket.price];
+    self.priceLabel.text = [NSString stringWithFormat:@"%@ %@.", ticket.price, Currency];
     self.placesLabel.text = [NSString stringWithFormat:@"%@ - %@", ticket.from, ticket.to];
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -75,7 +84,7 @@
 - (void)setFavoriteTicket:(FavoriteTicket *)favoriteTicket {
     _favoriteTicket = favoriteTicket;
     
-    self.priceLabel.text = [NSString stringWithFormat:@"%lld руб.", favoriteTicket.price];
+    self.priceLabel.text = [NSString stringWithFormat:@"%lld %@.", favoriteTicket.price, Currency];
     self.placesLabel.text = [NSString stringWithFormat:@"%@ - %@", favoriteTicket.from, favoriteTicket.to];
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -83,13 +92,13 @@
     self.dateLabel.text = [dateFormatter stringFromDate:favoriteTicket.departure];
     
     NSString *urlLogo = [NSString stringWithFormat:@"https://pics.avs.io/200/200/%@.png", favoriteTicket.airline];
-    [[APIManager sharedInstance] downloadPhotoFrom:urlLogo to:self.airlineLogoView];    
+    [[APIManager sharedInstance] downloadPhotoFrom:urlLogo to:self.airlineLogoView];
 }
 
 - (void)setMapTicket:(MapTicket *)mapTicket {
     _mapTicket = mapTicket;
     
-    self.priceLabel.text = [NSString stringWithFormat:@"%lld руб.", mapTicket.price];
+    self.priceLabel.text = [NSString stringWithFormat:@"%lld %@.", mapTicket.price, Currency];
     self.placesLabel.text = [NSString stringWithFormat:@"%@ - %@", mapTicket.from, mapTicket.to];
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -100,5 +109,14 @@
     [[APIManager sharedInstance] downloadPhotoFrom:urlLogo to:self.airlineLogoView];
 }
 
+- (void)setIsSelected:(BOOL)isSelected {
+    _isSelected = isSelected;
+    
+    if (isSelected) {
+        [self selectedAnimation];
+    } else {
+        [self unselectedAnimation];
+    }
+}
 
 @end

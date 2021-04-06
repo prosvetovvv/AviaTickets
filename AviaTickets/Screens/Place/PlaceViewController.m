@@ -64,9 +64,9 @@
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     
     if (self.placeType == PlaceTypeDeparture) {
-        self.title = @"Departure";
+        self.title = TitlePlaceViewControllerDeparture;
     } else {
-        self.title = @"Arrival";
+        self.title = TitlePlaceViewControllerArrival;
     }
 }
 
@@ -79,7 +79,7 @@
 }
 
 - (void)setupSegmentedControl {
-    self.segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"Cities", @"Airports"]];
+    self.segmentedControl = [[UISegmentedControl alloc] initWithItems:@[SegmentItemCities, SegmentItemAirports]];
     self.navigationItem.titleView = self.segmentedControl;
     self.segmentedControl.tintColor = [UIColor blackColor];
     self.segmentedControl.selectedSegmentIndex = 0;

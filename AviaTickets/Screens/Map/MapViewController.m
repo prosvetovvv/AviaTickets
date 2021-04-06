@@ -23,20 +23,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"Map prices";
+    self.title = TitleMapViewController;
     
-    
-    
-    self.mapView = [[MKMapView alloc] initWithFrame:self.view.bounds];
-    self.mapView.showsUserLocation = YES;
-    self.mapView.delegate = self;
-    
-    [self.view addSubview:self.mapView];
-    
-    [[DataManager sharedInstance] loadData];
+    [self setupMapView];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dataLoadedSuccessfully) name:kDataManagerLoadDataDidComplete object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateCurrentLocation:) name:kLocationManagerDidUpdateLocation object:nil];
+
+    [[DataManager sharedInstance] loadData];
 }
 
 - (void)dealloc {
@@ -44,6 +38,14 @@
 }
 
 #pragma mark - Private
+
+- (void) setupMapView {
+    self.mapView = [[MKMapView alloc] initWithFrame:self.view.bounds];
+    self.mapView.showsUserLocation = YES;
+    self.mapView.delegate = self;
+    
+    [self.view addSubview:self.mapView];
+}
 
 - (void)dataLoadedSuccessfully {
     self.locationManager = [[LocationManager alloc] init];
@@ -77,7 +79,7 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
             annotation.title = [NSString stringWithFormat:@"%@ (%@)", price.destination.name, price.destination.code];
-            annotation.subtitle = [NSString stringWithFormat:@"%ld руб.", (long)price.value];
+            annotation.subtitle = [NSString stringWithFormat:@"%ld %@.", (long)price.value, Currency];
             annotation.coordinate = price.destination.coordinate;
             annotation.ticket = ticket;
             
@@ -107,9 +109,14 @@
     
     [[CoreDataManager sharedInstance] addToSelectedFromMap:selectedAnnotation.ticket];
     
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Add ticket" message:@"Ticket added to favorites" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:AlertTitleMapViewController
+                                                                             message:AlertMessageMapViewController
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
     
-    [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"OK"
+                                                        style:UIAlertActionStyleDefault
+                                                      handler:nil]];
+    
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
